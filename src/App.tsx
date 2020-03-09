@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Home from './screens/home/Home';
 import Menu from './screens/menu/Menu';
+import Game from './screens/game/Game';
 
 function HomeScreen({navigation}) {
   return (
@@ -40,13 +41,21 @@ function App() {
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{title: 'Primeira tela deu boa'}}
+          options={{title: 'Primeira tela deu boa', headerShown: false}}
         />
         <Stack.Screen
           name="Details"
           component={Menu}
           options={{
             title: 'Segunda tela deu boa',
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Game"
+          component={Game}
+          options={{
+            title: 'Terceira tela deu boa',
             headerShown: false,
           }}
         />

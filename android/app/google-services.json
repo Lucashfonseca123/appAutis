@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "129115499165",
+    "firebase_url": "https://appautis.firebaseio.com",
+    "project_id": "appautis",
+    "storage_bucket": "appautis.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129115499165:android:145fcbd2d3d839c9364274",
+        "android_client_info": {
+          "package_name": "com.appautis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129115499165-uj0rva2tsf32ggvhbbbhcc2ijbe60efm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtO_jo3Z_-uPfaHoF4JabSYEDkfIXkzjQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129115499165-uj0rva2tsf32ggvhbbbhcc2ijbe60efm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

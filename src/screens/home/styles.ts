@@ -3,8 +3,8 @@ import styled from 'styled-components/native';
 const Container = styled.View`
   flex: 1;
   align-items: center;
-  background-color: lightsteelblue;
-  justify-content: center;
+
+  justify-content: flex-start;
   padding-top: 40px;
   padding-bottom: 40px;
   padding-left: 20px;
@@ -12,19 +12,29 @@ const Container = styled.View`
 `;
 
 const ContainerButton = styled.View`
-  justify-content: space-evenly;
-  flex-direction: row;
-  width: 100%;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+
+  /* flex-direction: row; */
+  /* overflow: hidden; */
+  /* border-color: #ddd;
+  border-width: 1px; */
 `;
 
 const ContainerTop = styled.View`
-  flex: 1;
   justify-content: flex-start;
 `;
 
 const ContainerBottom = styled.View`
-  flex: 1;
-  justify-content: flex-end;
+  /* flex: 1; */
+  width: 60%;
+  height: 50px;
+  border-radius: 25px;
+  overflow: hidden;
+  border-color: #ddd;
+  border-width: 1px;
 `;
 
 export {Container, ContainerButton, ContainerBottom, ContainerTop};

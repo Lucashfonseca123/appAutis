@@ -1,33 +1,47 @@
 import React from 'react';
-import {View, Text, Button, Image} from 'react-native';
+import {View, Text, ImageBackground, TouchableHighlight} from 'react-native';
 import {
   Container,
   ContainerButton,
   ContainerBottom,
   ContainerTop,
 } from './styles';
+import {Button} from 'react-native-elements';
 
 const Home = ({navigation}) => {
   return (
-    <Container>
-      <ContainerTop>
-        <Text style={{paddingBottom: 20, fontWeight: 'bold', fontSize: 20}}>
-          Bem vindo, bora jogar?
-        </Text>
-      </ContainerTop>
-      <ContainerBottom>
-        <ContainerButton>
-          <Button
-            title="Agora ou ja?"
+    <ImageBackground
+      source={require('../../assets/default.jpg')}
+      style={{width: '100%', height: '100%'}}>
+      <Container>
+        <ContainerTop>
+          <Text
+            style={{
+              paddingBottom: 20,
+              fontWeight: 'bold',
+              fontSize: 20,
+              fontFamily: '',
+            }}>
+            Vamos jogar?
+          </Text>
+        </ContainerTop>
+        <ContainerBottom>
+          <TouchableHighlight
             onPress={() => navigation.navigate('Details')}
-          />
-          <Button
-            title="To de boas"
-            onPress={() => alert('Faz parte, volte sempre')}
-          />
-        </ContainerButton>
-      </ContainerBottom>
-    </Container>
+            style={{
+              flex: 1,
+              width: '100%',
+              justifyContent: 'center',
+              backgroundColor: 'yellow',
+            }}
+            underlayColor="white">
+            <ContainerButton>
+              <Text>INICIAR</Text>
+            </ContainerButton>
+          </TouchableHighlight>
+        </ContainerBottom>
+      </Container>
+    </ImageBackground>
   );
 };
 

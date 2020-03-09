@@ -1,35 +1,56 @@
 import React, {useState} from 'react';
-import {View, Button, Text} from 'react-native';
+import {Modal, Text, Button, View, Alert} from 'react-native';
 
-import {DivTitle} from './styles';
+import {
+  DivTitle,
+  Container,
+  DivTop,
+  DivMiddle,
+  DivBottom,
+  ContainerModal,
+} from './styles';
 import TextField from '../../components/textField';
 
-const Menu = ({navigation}) => {
+const Menu = () => {
+  const [modalVisible, setModalVisible] = useState();
   const [value, setValue] = useState('');
 
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <DivTitle>
-        <Text>Digite seu nombre</Text>
-      </DivTitle>
-      {/* <TextInput
-        placeholder="Fala seu nome que te escuto"
-        style={{
-          borderBottomColor: 'black',
-          borderWidth: 1,
-          width: 200,
-          marginBottom: 20,
+    <Container>
+      <Modal
+        animationType="slide"
+        transparent={false}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+        }}>
+        <Container>
+          <View>
+            <Text style={{textAlign: 'center', paddingBottom: 20}}>
+              {value}
+            </Text>
+            <TextField
+              label="Digite seu nome"
+              width={200}
+              onChangeText={(text: string) => setValue(text)}
+            />
+            <Button
+              title="Some"
+              onPress={() => {
+                setModalVisible(false);
+              }}
+            />
+          </View>
+        </Container>
+      </Modal>
+      <Button
+        title="Apareça"
+        onPress={() => {
+          setModalVisible(true);
         }}
-        onChangeText={(text: string) => setValue(text)}
-    /> */}
-      <TextField
-        label="Digite seu nome"
-        width={200}
-        onChangeText={(text: string) => setValue(text)}
       />
-      <Button title="Go to home" onPress={() => navigation.push('Home')} />
-      <Text>Bem vindo: {value}</Text>
-    </View>
+      <Text>Show Modal</Text>
+    </Container>
   );
 };
 
