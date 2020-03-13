@@ -20,6 +20,11 @@ const ContainerModal = styled.View`
   padding-bottom: 20px;
 `;
 
+const ContainerAvatar = styled.View`
+  padding-top: 20px;
+  padding-bottom: 20px;
+`;
+
 const DivTitle = styled.View`
   padding-bottom: 10px;
 `;
@@ -30,4 +35,4 @@ const DivMiddle = styled.View``;
 
 const DivBottom = styled.View``;
 
-export {DivTitle, Container, DivTop, DivMiddle, DivBottom, ContainerModal};
+export { DivTitle, Container, DivTop, DivMiddle, DivBottom, ContainerModal, ContainerAvatar };

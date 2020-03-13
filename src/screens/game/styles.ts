@@ -2,11 +2,9 @@ import styled from 'styled-components/native';
 
 const Container = styled.View`
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   padding-left: 20px;
   padding-right: 20px;
-  /* justify-content: flex-end; */
-  /* flex-direction: row; */
   flex: 1;
 `;
 
@@ -24,4 +22,4 @@ const DivButton = styled.View`
   justify-content: space-around;
 `;
 
-export {Container, DivButton, DivTop};
+export { Container, DivButton, DivTop };

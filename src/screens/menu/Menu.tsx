@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Modal, Text, Button, View, Alert} from 'react-native';
+import React, { useState } from 'react';
+import { Modal, Text, Button, View, Alert, Image } from 'react-native';
 
 import {
   DivTitle,
@@ -8,10 +8,11 @@ import {
   DivMiddle,
   DivBottom,
   ContainerModal,
+  ContainerAvatar
 } from './styles';
 import TextField from '../../components/textField';
 
-const Menu = () => {
+const Menu = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState();
   const [value, setValue] = useState('');
 
@@ -22,11 +23,12 @@ const Menu = () => {
         transparent={false}
         visible={modalVisible}
         onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
+          // Alert.alert('Modal has been closed.');
+          alert('Ops, acho que você esquecer de digitar seu nome');
         }}>
         <Container>
           <View>
-            <Text style={{textAlign: 'center', paddingBottom: 20}}>
+            <Text style={{ textAlign: 'center', paddingBottom: 20 }}>
               {value}
             </Text>
             <TextField
@@ -43,13 +45,17 @@ const Menu = () => {
           </View>
         </Container>
       </Modal>
+      <Text> Eu sou o Pedro, vou ser seu amigo!</Text>
+      <ContainerAvatar>
+        <Image source={require('../../assets/avatar/bebe.jpg')} style={{ width: 180, height: 250 }} />
+      </ContainerAvatar>
       <Button
-        title="Apareça"
+        title="Vamos lá!"
         onPress={() => {
-          setModalVisible(true);
+          // setModalVisible(true);
+          navigation.navigate('Game');
         }}
       />
-      <Text>Show Modal</Text>
     </Container>
   );
 };

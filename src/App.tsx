@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {View, Text, Button} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import { View, Text, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import Home from './screens/home/Home';
 import Menu from './screens/menu/Menu';
 import Game from './screens/game/Game';
 
-function HomeScreen({navigation}) {
+function HomeScreen({ navigation }) {
   return (
     <View
       style={{
@@ -14,7 +14,7 @@ function HomeScreen({navigation}) {
         alignItems: 'center',
         justifyContent: 'center',
       }}>
-      <Text style={{paddingBottom: 20, fontWeight: 'bold', fontSize: 20}}>
+      <Text style={{ paddingBottom: 20, fontWeight: 'bold', fontSize: 20 }}>
         {' '}
         Welcome to TEA app
       </Text>
@@ -23,9 +23,9 @@ function HomeScreen({navigation}) {
   );
 }
 
-function DetailsScreen({navigation}) {
+function DetailsScreen({ navigation }) {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Details Screen</Text>
       <Button title="Go to home" onPress={() => navigation.navigate('Home')} />
     </View>
@@ -41,7 +41,7 @@ function App() {
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{title: 'Primeira tela deu boa', headerShown: false}}
+          options={{ title: 'Primeira tela deu boa', headerShown: false }}
         />
         <Stack.Screen
           name="Details"
@@ -56,7 +56,8 @@ function App() {
           component={Game}
           options={{
             title: 'Terceira tela deu boa',
-            headerShown: false,
+            headerShown: true,
+            headerBackTitleStyle: 'center'
           }}
         />
       </Stack.Navigator>
