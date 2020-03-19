@@ -25,6 +25,7 @@ const ContainerButton = styled.View`
 
 const ContainerTop = styled.View`
   justify-content: flex-start;
+  margin-bottom: 20px;
 `;
 
 const ContainerBottom = styled.View`
@@ -37,4 +38,14 @@ const ContainerBottom = styled.View`
   border-width: 1px;
 `;
 
-export {Container, ContainerButton, ContainerBottom, ContainerTop};
+const Titulo = styled.Text`
+  font-family: 'Doctor_Soos_Bold_2.1';
+  font-size: 40px;
+`;
+
+const TituloBotao = styled.Text`
+  font-family: 'doctorbold';
+  font-size: 25px;
+`;
+
+export { Container, ContainerButton, ContainerBottom, ContainerTop, Titulo, TituloBotao };

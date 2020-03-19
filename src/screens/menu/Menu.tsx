@@ -24,7 +24,7 @@ const Menu = ({ navigation }) => {
         visible={modalVisible}
         onRequestClose={() => {
           // Alert.alert('Modal has been closed.');
-          alert('Ops, acho que você esquecer de digitar seu nome');
+          alert('Ops, acho que você esqueceu de digitar seu nome');
         }}>
         <Container>
           <View>
@@ -45,7 +45,7 @@ const Menu = ({ navigation }) => {
           </View>
         </Container>
       </Modal>
-      <Text> Eu sou o Pedro, vou ser seu amigo!</Text>
+      <Text> Fala {value}, eu sou o Pedro, vou ser o seu amigo!</Text>
       <ContainerAvatar>
         <Image source={require('../../assets/avatar/bebe.jpg')} style={{ width: 180, height: 250 }} />
       </ContainerAvatar>

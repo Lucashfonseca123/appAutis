@@ -5,6 +5,8 @@ import {
   ContainerButton,
   ContainerBottom,
   ContainerTop,
+  Titulo,
+  TituloBotao
 } from './styles';
 import { Button } from 'react-native-elements';
 
@@ -15,15 +17,7 @@ const Home = ({ navigation }) => {
       style={{ width: '100%', height: '100%' }}>
       <Container>
         <ContainerTop>
-          <Text
-            style={{
-              paddingBottom: 20,
-              fontWeight: 'bold',
-              fontSize: 20,
-              fontFamily: 'Cochin',
-            }}>
-            Vamos jogar?
-          </Text>
+          <Titulo>Vamos jogar?</Titulo>
         </ContainerTop>
         <ContainerBottom>
           <TouchableHighlight
@@ -32,11 +26,13 @@ const Home = ({ navigation }) => {
               flex: 1,
               width: '100%',
               justifyContent: 'center',
-              backgroundColor: 'yellow',
+              backgroundColor: 'white',
             }}
-            underlayColor="white">
+            activeOpacity={0.7}
+            delayLongPress={1000}
+            underlayColor="yellow">
             <ContainerButton>
-              <Text>INICIAR</Text>
+              <TituloBotao>Vamos!</TituloBotao>
             </ContainerButton>
           </TouchableHighlight>
         </ContainerBottom>

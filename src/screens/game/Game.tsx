@@ -7,7 +7,7 @@ const Game = () => {
     <Container>
       {/* <Text>asdsadas</Text> */}
       <DivTop>
-        <Text style={{ textAlign: 'center', fontWeight: 'bold', fontSize: 18 }}> Vamos aprender sobre figurar geométricas </Text>
+        <Text style={{ textAlign: 'center', fontWeight: 'bold', fontSize: 18 }}> Vamos aprender sobre figuras geométricas </Text>
       </DivTop>
       <DivButton>
         <Button title="Triangulo" onPress={() => null} color="orange" />
