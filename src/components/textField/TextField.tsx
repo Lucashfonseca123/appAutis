@@ -1,5 +1,5 @@
 import React from 'react';
-import {OutlinedTextField} from 'react-native-material-textfield';
+import { OutlinedTextField } from 'react-native-material-textfield';
 
 export interface ITextFieldProps {
   label?: string;
@@ -12,7 +12,7 @@ export const TextField = (props: ITextFieldProps) => {
     <OutlinedTextField
       label={props.label}
       keyboardType="default"
-      inputContainerStyle={{width: props.width}}
+      inputContainerStyle={{ width: props.width }}
       onChangeText={props.onChangeText}
     />
   );

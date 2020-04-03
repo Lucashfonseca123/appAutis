@@ -11,16 +11,11 @@ const Container = styled.View`
   padding-right: 20px;
 `;
 
-const ContainerButton = styled.View`
+const ContainerBottom = styled.View`
   justify-content: center;
   align-items: center;
   align-self: center;
   text-align: center;
-
-  /* flex-direction: row; */
-  /* overflow: hidden; */
-  /* border-color: #ddd;
-  border-width: 1px; */
 `;
 
 const ContainerTop = styled.View`
@@ -28,24 +23,23 @@ const ContainerTop = styled.View`
   margin-bottom: 20px;
 `;
 
-const ContainerBottom = styled.View`
-  /* flex: 1; */
-  width: 60%;
+const ContainerButton = styled.View`
+  background-color: white
+  width: 70%;
   height: 50px;
   border-radius: 25px;
-  overflow: hidden;
-  border-color: #ddd;
-  border-width: 1px;
 `;
 
 const Titulo = styled.Text`
   font-family: 'Doctor_Soos_Bold_2.1';
   font-size: 40px;
+  color: #fff;
 `;
 
 const TituloBotao = styled.Text`
   font-family: 'doctorbold';
   font-size: 25px;
+  color: #f0c01a;
 `;
 
 export { Container, ContainerButton, ContainerBottom, ContainerTop, Titulo, TituloBotao };

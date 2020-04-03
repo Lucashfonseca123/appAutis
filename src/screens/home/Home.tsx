@@ -1,43 +1,41 @@
 import React from 'react';
-import { View, Text, ImageBackground, TouchableHighlight } from 'react-native';
+import { View, Text, ImageBackground, TouchableHighlight, TouchableOpacity } from 'react-native';
 import {
   Container,
   ContainerButton,
-  ContainerBottom,
   ContainerTop,
   Titulo,
   TituloBotao
 } from './styles';
-import { Button } from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native';
 
-const Home = ({ navigation }) => {
+const Home = () => {
+  const navigation = useNavigation();
   return (
     <ImageBackground
       source={require('../../assets/default.jpg')}
       style={{ width: '100%', height: '100%' }}>
       <Container>
         <ContainerTop>
-          <Titulo>Vamos jogar?</Titulo>
+          <Titulo style={{
+            textShadowColor: 'rgba(0, 0, 0, 0.75)',
+            textShadowOffset: { width: -1, height: 1 },
+            textShadowRadius: 10
+          }}>Vamos jogar?</Titulo>
         </ContainerTop>
-        <ContainerBottom>
-          <TouchableHighlight
-            onPress={() => navigation.navigate('Details')}
-            style={{
-              flex: 1,
-              width: '100%',
-              justifyContent: 'center',
-              backgroundColor: 'white',
-            }}
-            activeOpacity={0.7}
-            delayLongPress={1000}
-            underlayColor="yellow">
-            <ContainerButton>
-              <TituloBotao>Vamos!</TituloBotao>
-            </ContainerButton>
-          </TouchableHighlight>
-        </ContainerBottom>
+        <ContainerButton style={{
+          shadowColor: "#000",
+          elevation: 3,
+        }}>
+          <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} onPress={() => navigation.navigate('Login')}>
+            <TituloBotao style={{
+              textShadowColor: 'rgba(0, 0, 0, 0.15)',
+              textShadowOffset: { width: -0.5, height: 0.5 },
+            }}>Vamos!</TituloBotao>
+          </TouchableOpacity>
+        </ContainerButton>
       </Container>
-    </ImageBackground>
+    </ImageBackground >
   );
 };
 

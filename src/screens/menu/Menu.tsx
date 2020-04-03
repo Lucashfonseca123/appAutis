@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Modal, Text, Button, View, Alert, Image } from 'react-native';
+import React, { Component, useState } from 'react';
+import { Modal, Text, Button, View, Alert, Image, Animated, StyleSheet } from 'react-native';
 
 import {
   DivTitle,
@@ -10,7 +10,45 @@ import {
   ContainerModal,
   ContainerAvatar
 } from './styles';
-import TextField from '../../components/textField';
+
+
+class ImageLoader extends Component {
+  state = {
+    opacity: new Animated.Value(0),
+  }
+
+  onLoad = () => {
+    Animated.timing(this.state.opacity, {
+      toValue: 1,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
+  }
+
+  render() {
+    return (
+      <Animated.Image
+        onLoad={this.onLoad}
+        {...this.props}
+        style={[
+          {
+            opacity: this.state.opacity,
+            transform: [
+              {
+                scale: this.state.opacity.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0.85, 1],
+                })
+              },
+            ],
+          },
+          this.props.style,
+        ]}
+      />
+    );
+  }
+}
+
 
 const Menu = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState();
@@ -18,7 +56,7 @@ const Menu = ({ navigation }) => {
 
   return (
     <Container>
-      <Modal
+      {/* <Modal
         animationType="slide"
         transparent={false}
         visible={modalVisible}
@@ -37,17 +75,21 @@ const Menu = ({ navigation }) => {
               onChangeText={(text: string) => setValue(text)}
             />
             <Button
-              title="Some"
+              title="Aceitar"
               onPress={() => {
                 setModalVisible(false);
               }}
             />
           </View>
         </Container>
-      </Modal>
+      </Modal> */}
       <Text> Fala {value}, eu sou o Pedro, vou ser o seu amigo!</Text>
       <ContainerAvatar>
-        <Image source={require('../../assets/avatar/bebe.jpg')} style={{ width: 180, height: 250 }} />
+        {/* <Image source={require('../../assets/avatar/bebe.png')} style={{ width: 180, height: 250 }} /> */}
+        <ImageLoader
+          style={styles.image}
+          source={require('../../assets/avatar/bebe.png')}
+        />
       </ContainerAvatar>
       <Button
         title="Vamos lá!"
@@ -61,3 +103,14 @@ const Menu = ({ navigation }) => {
 };
 
 export default Menu;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  image: {
+    width: 180, height: 250
+  },
+});

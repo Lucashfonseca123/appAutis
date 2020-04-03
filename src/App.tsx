@@ -2,45 +2,23 @@ import * as React from 'react';
 import { View, Text, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Home from './screens/home/Home';
-import Menu from './screens/menu/Menu';
-import Game from './screens/game/Game';
 
-function HomeScreen({ navigation }) {
-  return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}>
-      <Text style={{ paddingBottom: 20, fontWeight: 'bold', fontSize: 20 }}>
-        {' '}
-        Welcome to TEA app
-      </Text>
-      <Button title="Iniciar" onPress={() => navigation.navigate('Details')} />
-    </View>
-  );
-}
-
-function DetailsScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Details Screen</Text>
-      <Button title="Go to home" onPress={() => navigation.navigate('Home')} />
-    </View>
-  );
-}
+import { Game, Home, Login, Menu } from "./screens";
 
 const Stack = createStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name="Home"
           component={Home}
+          options={{ title: 'Primeira tela deu boa', headerShown: false }}
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
           options={{ title: 'Primeira tela deu boa', headerShown: false }}
         />
         <Stack.Screen
