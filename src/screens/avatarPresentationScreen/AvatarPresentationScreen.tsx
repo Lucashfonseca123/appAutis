@@ -50,7 +50,7 @@ class ImageLoader extends Component {
 }
 
 
-const Menu = ({ navigation }) => {
+const AvatarPresentationScreen = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState();
   const [value, setValue] = useState('');
 
@@ -95,14 +95,14 @@ const Menu = ({ navigation }) => {
         title="Vamos lá!"
         onPress={() => {
           // setModalVisible(true);
-          navigation.navigate('Game');
+          navigation.navigate('PlayerScreen');
         }}
       />
     </Container>
   );
 };
 
-export default Menu;
+export default AvatarPresentationScreen;
 
 const styles = StyleSheet.create({
   container: {

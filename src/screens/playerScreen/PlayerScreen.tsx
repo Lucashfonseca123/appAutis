@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Button } from 'react-native';
 import { Container, DivButton, DivTop } from './styles';
 
-const Game = () => {
+const PlayerScreen = () => {
   return (
     <Container>
       {/* <Text>asdsadas</Text> */}
@@ -18,4 +18,4 @@ const Game = () => {
   );
 };
 
-export default Game;
+export default PlayerScreen;

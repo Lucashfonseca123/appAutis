@@ -7,7 +7,6 @@ const Container = styled.View`
   flex-direction: column;
   justify-content:space-between;
   padding-top: 40px;
-  padding-bottom: 40px;
   padding-left: 20px;
   padding-right: 20px;
 `;
@@ -17,14 +16,12 @@ const ContainerTop = styled.View`
 `;
 
 const ContainerMiddle = styled.View`
+  margin-top: 120px;
   width: 100%;
 `;
 
 const ContainerBottom = styled.View`
-  background-color: black;
-  flex: 1;
+  justify-content: flex-end;
 `;
-
-
 
 export { Container, ContainerBottom, ContainerTop, ContainerMiddle };
