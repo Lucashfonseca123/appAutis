@@ -23,11 +23,18 @@ const ContainerBottom = styled.View`
 `;
 
 const ContainerImage = styled.View`
-background-color: green;
-position: absolute;
-flex: 1;
+  position: absolute;
+  bottom: 134px;
+  left: 10px;
+`;
+
+const ContainerPopUp = styled.View`
+  position: absolute;
+  top: 80px;
+  left: 45px;
+  width: 53%;
 `;
 
 
-export { Container, ContainerTop, ContainerBottom, ContainerImage }
+export { Container, ContainerTop, ContainerBottom, ContainerImage, ContainerPopUp }
 

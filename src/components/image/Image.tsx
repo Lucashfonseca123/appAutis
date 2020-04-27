@@ -2,7 +2,20 @@ import React from 'react';
 import { Image } from 'react-native';
 
 interface IImage {
-    type: 'Confuso' | 'Feliz' | 'FelizOrelhaBaixoDente' | 'FelizOrelhaDente' | 'Inteiro' | 'TristeChoro';
+    type: 'Confuso'
+    | 'Feliz'
+    | 'FelizOrelhaBaixoDente'
+    | 'FelizOrelhaDente'
+    | 'Inteiro'
+    | 'TristeChoro'
+    | 'Adolescente'
+    | 'Adulto'
+    | 'Adulto2'
+    | 'Adulto3'
+    | 'Bebe'
+    | 'Criança'
+    | 'Nene'
+    | 'Velho';
     width?: number;
     height?: number;
 }
@@ -44,6 +57,54 @@ const MaxImage = (props: IImage) => {
             case "TristeChoro": {
                 return <Image
                     source={require('../../assets/max/TristeChoro.png')}
+                    style={{ width: props.width ? props.width : 247, height: props.height ? props.height : 200 }}
+                />
+            }
+            case "Adolescente": {
+                return <Image
+                    source={require('../../assets/avatar/adolescente.png')}
+                    style={{ width: props.width ? props.width : 247, height: props.height ? props.height : 200 }}
+                />
+            }
+            case "Adulto": {
+                return <Image
+                    source={require('../../assets/avatar/adulto.png')}
+                    style={{ width: props.width ? props.width : 247, height: props.height ? props.height : 200 }}
+                />
+            }
+            case "Adulto2": {
+                return <Image
+                    source={require('../../assets/avatar/adulto2.png')}
+                    style={{ width: props.width ? props.width : 247, height: props.height ? props.height : 200 }}
+                />
+            }
+            case "Adulto3": {
+                return <Image
+                    source={require('../../assets/avatar/adulto3.png')}
+                    style={{ width: props.width ? props.width : 247, height: props.height ? props.height : 200 }}
+                />
+            }
+            case "Bebe": {
+                return <Image
+                    source={require('../../assets/avatar/bebe.png')}
+                    style={{ width: props.width ? props.width : 247, height: props.height ? props.height : 200 }}
+                />
+            }
+            case "Criança": {
+                return <Image
+                    source={require('../../assets/avatar/criança.png')}
+                    style={{ width: props.width ? props.width : 247, height: props.height ? props.height : 200 }}
+                />
+            }
+            case "Nene": {
+                return <Image
+                    source={require('../../assets/avatar/nene.png')}
+                    style={{ width: props.width ? props.width : 247, height: props.height ? props.height : 200 }}
+                />
+            }
+            case "Velho": {
+                return <Image
+                    source={require('../../assets/avatar/velho.png')}
                     style={{ width: props.width ? props.width : 247, height: props.height ? props.height : 200 }}
                 />
             }

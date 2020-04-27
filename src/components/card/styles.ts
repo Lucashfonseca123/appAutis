@@ -9,6 +9,8 @@ const Card = styled.View`
   border-radius: 32px;
   padding-left: 16px;
   padding-right: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   elevation: 2;
 `;
 

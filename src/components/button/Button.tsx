@@ -10,11 +10,13 @@ interface IButton {
     heightSize?: number | string;
     fontSize?: number;
     backgroundColor?: string;
+    paddingTopButton?: number;
 }
 
 const Button = (props: IButton) => {
     return (
-        <Container widthSize={props.widthSize} heightSize={props.heightSize}>
+        <Container widthSize={props.widthSize} heightSize={props.heightSize}
+            paddingTopButton={props.paddingTopButton}>
             <TouchableOpacity onPress={props.onPress ? props.onPress : null} style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                 <Markdown title={props.text} fontSize={props.fontSize} />
             </TouchableOpacity>

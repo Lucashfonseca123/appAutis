@@ -3,5 +3,6 @@ import TextField from "./textField";
 import Markdown from "./markdown";
 import Button from "./button";
 import Image from "./image";
+import PopUp from "./popUp";
 
-export { Card, TextField, Markdown, Button, Image };
+export { Card, TextField, Markdown, Button, Image, PopUp };

@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components/native';
 interface IButton {
   widthSize?: number | string;
   heightSize?: number | string;
+  paddingTopButton?: number | string;
 }
 
 const Container = styled.View`
@@ -11,9 +12,9 @@ const Container = styled.View`
   /* justify-content: center;
   align-items: center; */
   ${(props: IButton) => css`
-  width: ${props.widthSize ? props.widthSize : '100%'};
-  padding-bottom: ${props.heightSize ? props.heightSize : '25%'};
-  padding-top: ${props.heightSize ? props.heightSize : '25%'};
+  width: ${props.widthSize ? props.widthSize : 100}%;
+  padding-bottom: ${props.heightSize ? props.heightSize : 25}%;
+  padding-top: ${props.paddingTopButton ? props.paddingTopButton : props.heightSize ? props.heightSize : 25}%;
   `
   }
   border-radius: 20px;

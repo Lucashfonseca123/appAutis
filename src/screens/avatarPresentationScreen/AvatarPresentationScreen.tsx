@@ -1,116 +1,52 @@
-import React, { Component, useState } from 'react';
-import { Modal, Text, Button, View, Alert, Image, Animated, StyleSheet } from 'react-native';
+import React, { useRef, useEffect } from "react";
+import { Animated, Text, View, StyleSheet } from "react-native";
+import { Image, Button } from "../../components";
+import { Container } from "./styles";
 
-import {
-  DivTitle,
-  Container,
-  DivTop,
-  DivMiddle,
-  DivBottom,
-  ContainerModal,
-  ContainerAvatar
-} from './styles';
+export default function App() {
+  useEffect(() => {
+    fadeIn();
+  }, [])
+  // fadeAnim will be used as the value for opacity. Initial Value: 0
+  const fadeAnim = useRef(new Animated.Value(0)).current;
 
-
-class ImageLoader extends Component {
-  state = {
-    opacity: new Animated.Value(0),
-  }
-
-  onLoad = () => {
-    Animated.timing(this.state.opacity, {
+  const fadeIn = () => {
+    // Will change fadeAnim value to 1 in 5 seconds
+    Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 500,
-      useNativeDriver: true,
+      duration: 2000
     }).start();
-  }
+  };
 
-  render() {
-    return (
-      <Animated.Image
-        onLoad={this.onLoad}
-        {...this.props}
-        style={[
-          {
-            opacity: this.state.opacity,
-            transform: [
-              {
-                scale: this.state.opacity.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [0.85, 1],
-                })
-              },
-            ],
-          },
-          this.props.style,
-        ]}
-      />
-    );
-  }
-}
-
-
-const AvatarPresentationScreen = ({ navigation }) => {
-  const [modalVisible, setModalVisible] = useState();
-  const [value, setValue] = useState('');
+  const fadeOut = () => {
+    // Will change fadeAnim value to 0 in 5 seconds
+    Animated.timing(fadeAnim, {
+      toValue: 0,
+      duration: 2000
+    }).start();
+  };
 
   return (
     <Container>
-      {/* <Modal
-        animationType="slide"
-        transparent={false}
-        visible={modalVisible}
-        onRequestClose={() => {
-          // Alert.alert('Modal has been closed.');
-          alert('Ops, acho que você esqueceu de digitar seu nome');
-        }}>
-        <Container>
-          <View>
-            <Text style={{ textAlign: 'center', paddingBottom: 20 }}>
-              {value}
-            </Text>
-            <TextField
-              label="Digite seu nome"
-              width={200}
-              onChangeText={(text: string) => setValue(text)}
-            />
-            <Button
-              title="Aceitar"
-              onPress={() => {
-                setModalVisible(false);
-              }}
-            />
-          </View>
-        </Container>
-      </Modal> */}
-      <Text> Fala {value}, eu sou o Pedro, vou ser o seu amigo!</Text>
-      <ContainerAvatar>
-        {/* <Image source={require('../../assets/avatar/bebe.png')} style={{ width: 180, height: 250 }} /> */}
-        <ImageLoader
-          style={styles.image}
-          source={require('../../assets/avatar/bebe.png')}
-        />
-      </ContainerAvatar>
-      <Button
-        title="Vamos lá!"
-        onPress={() => {
-          // setModalVisible(true);
-          navigation.navigate('PlayerScreen');
-        }}
-      />
+      <Animated.View
+        style={[
+          {
+            opacity: fadeAnim // Bind opacity to animated value
+          }
+        ]}
+      >
+        <Image type="Bebe" width={140} height={160} />
+      </Animated.View>
+      <Button text="Ok, vamos lá!" onPress={() => fadeOut()}
+        widthSize={70}
+        heightSize={3} />
     </Container>
   );
-};
-
-export default AvatarPresentationScreen;
+}
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  image: {
-    width: 180, height: 250
-  },
+  buttonRow: {
+    flexDirection: "row",
+    marginVertical: 16
+  }
 });
