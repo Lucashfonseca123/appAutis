@@ -10,17 +10,24 @@ interface IButton {
     heightSize?: number | string;
     fontSize?: number;
     backgroundColor?: string;
-    paddingTopButton?: number;
+    paddingLeft?: number;
+    paddingRight?: number;
 }
 
 const Button = (props: IButton) => {
     return (
-        <Container widthSize={props.widthSize} heightSize={props.heightSize}
-            paddingTopButton={props.paddingTopButton}>
-            <TouchableOpacity onPress={props.onPress ? props.onPress : null} style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+        <Container widthSize={props.widthSize}>
+            <TouchableOpacity
+                onPress={props.onPress ? props.onPress : null}
+                style={{
+                    alignItems: 'center',
+                    width: props.widthSize,
+                    paddingTop: props.heightSize,
+                    paddingBottom: props.heightSize,
+                }}>
                 <Markdown title={props.text} fontSize={props.fontSize} />
             </TouchableOpacity>
-        </Container>
+        </Container >
     );
 }
 

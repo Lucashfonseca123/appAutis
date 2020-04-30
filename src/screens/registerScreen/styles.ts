@@ -18,8 +18,9 @@ const ContainerTop = styled.View`
 const ContainerBottom = styled.View`
   margin-top: 26px;
   width: 100%;
-  justify-content: center;
-  align-items: center;  
+   /* justify-content: center; */
+  align-items: center;
+  /* flex: 1;   */
 `;
 
 const ContainerImage = styled.View`

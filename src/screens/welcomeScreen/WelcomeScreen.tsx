@@ -21,8 +21,8 @@ const WelcomeScreen = () => {
         <Button text="INICIAR" onPress={() => navigation.navigate('RegisterScreen')}
           backgroundColor="white"
           fontSize={36}
-          heightSize={5}
-          widthSize={100} />
+          heightSize={16}
+          widthSize={300} />
       </ContainerMiddle>
       <ContainerBottom>
         <Image type="Feliz"

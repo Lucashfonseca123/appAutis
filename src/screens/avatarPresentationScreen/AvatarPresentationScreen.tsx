@@ -1,9 +1,11 @@
 import React, { useRef, useEffect } from "react";
 import { Animated, Text, View, StyleSheet } from "react-native";
-import { Image, Button } from "../../components";
-import { Container } from "./styles";
+import { Image, Button, PopUp } from "../../components";
+import { Container, ContainerTop, ContainerMiddle, ContainerBottom } from "./styles";
+import { useNavigation } from "@react-navigation/native";
 
 export default function App() {
+  const navigation = useNavigation();
   useEffect(() => {
     fadeIn();
   }, [])
@@ -28,18 +30,29 @@ export default function App() {
 
   return (
     <Container>
-      <Animated.View
-        style={[
-          {
-            opacity: fadeAnim // Bind opacity to animated value
-          }
-        ]}
-      >
-        <Image type="Bebe" width={140} height={160} />
-      </Animated.View>
-      <Button text="Ok, vamos lá!" onPress={() => fadeOut()}
-        widthSize={70}
-        heightSize={3} />
+      <PopUp title="Esse é o Pedro!  Quanto mais perguntas acertar, mais rápido ele irá crescer!"
+        posLeft={130} posTop={70} fontSize={14} width={61} />
+      <ContainerTop>
+        <Image type="FelizOrelhaBaixoDente" width={140} height={160} />
+      </ContainerTop>
+      <ContainerMiddle>
+        <Animated.View
+          style={[
+            {
+              opacity: fadeAnim // Bind opacity to animated value
+            }
+          ]}
+        >
+          <Image type="Bebe" width={140} height={160} />
+        </Animated.View>
+      </ContainerMiddle>
+      <ContainerBottom>
+        <Button text="Ok, vamos lá!" onPress={() => navigation.navigate('MenuScreen')}
+          widthSize={200}
+          heightSize={10}
+          fontSize={20}
+        />
+      </ContainerBottom>
     </Container>
   );
 }

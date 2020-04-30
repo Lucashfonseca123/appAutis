@@ -2,7 +2,14 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { PlayerScreen, WelcomeScreen, RegisterScreen, AvatarPresentationScreen } from "../screens";
+import {
+    PlayerScreen,
+    WelcomeScreen,
+    RegisterScreen,
+    AvatarPresentationScreen,
+    MenuScreen,
+    ConfigurationScreen
+} from "../screens";
 
 const Stack = createStackNavigator();
 
@@ -32,7 +39,25 @@ function RootNavigator() {
                     name="PlayerScreen"
                     component={PlayerScreen}
                     options={{
-                        title: 'Terceira tela deu boa',
+                        title: ' ',
+                        headerShown: true,
+                        headerBackTitleStyle: 'center'
+                    }}
+                />
+                <Stack.Screen
+                    name="MenuScreen"
+                    component={MenuScreen}
+                    options={{
+                        title: '',
+                        headerShown: true,
+                        headerBackTitleStyle: 'center'
+                    }}
+                />
+                <Stack.Screen
+                    name="ConfigurationScreen"
+                    component={ConfigurationScreen}
+                    options={{
+                        title: '',
                         headerShown: true,
                         headerBackTitleStyle: 'center'
                     }}

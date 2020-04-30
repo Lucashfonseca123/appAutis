@@ -11,7 +11,7 @@ const ContainerPopUp = styled.View`
         position: absolute;
         top: ${props.posTop ? props.posTop : 80}px;
         left: ${props.posLeft ? props.posLeft : 45}px;
-        width: ${props.width ? props.width : 53}%;
+        width: ${props.width ? props.width : 59}%;
     `}
 `;
 

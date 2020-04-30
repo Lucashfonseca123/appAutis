@@ -15,7 +15,11 @@ interface IImage {
     | 'Bebe'
     | 'Criança'
     | 'Nene'
-    | 'Velho';
+    | 'Velho'
+    | 'ArrowRight'
+    | 'Question'
+    | 'Checkbox'
+    | 'Exit';
     width?: number;
     height?: number;
 }
@@ -105,6 +109,30 @@ const MaxImage = (props: IImage) => {
             case "Velho": {
                 return <Image
                     source={require('../../assets/avatar/velho.png')}
+                    style={{ width: props.width ? props.width : 247, height: props.height ? props.height : 200 }}
+                />
+            }
+            case "ArrowRight": {
+                return <Image
+                    source={require('../../assets/icons/arrowRight.png')}
+                    style={{ width: props.width ? props.width : 247, height: props.height ? props.height : 200 }}
+                />
+            }
+            case "Question": {
+                return <Image
+                    source={require('../../assets/icons/question.png')}
+                    style={{ width: props.width ? props.width : 247, height: props.height ? props.height : 200 }}
+                />
+            }
+            case "Checkbox": {
+                return <Image
+                    source={require('../../assets/icons/checkbox.png')}
+                    style={{ width: props.width ? props.width : 247, height: props.height ? props.height : 200 }}
+                />
+            }
+            case "Exit": {
+                return <Image
+                    source={require('../../assets/icons/exit.png')}
                     style={{ width: props.width ? props.width : 247, height: props.height ? props.height : 200 }}
                 />
             }

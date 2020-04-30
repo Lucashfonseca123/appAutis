@@ -31,7 +31,12 @@ const RegisterScreen = () => {
           onChangeText={(text: string) => setValue(text)} marginBottom={5} />
       </Card>
       <ContainerBottom>
-        <Button text="enviar" widthSize={50} heightSize={3} onPress={() => navigation.navigate('AvatarPresentationScreen')} fontSize={18} />
+        <Button text="enviar"
+          widthSize={120}
+          heightSize={16}
+          onPress={() => navigation.navigate('AvatarPresentationScreen')}
+          fontSize={20}
+        />
       </ContainerBottom>
     </Container>
   );

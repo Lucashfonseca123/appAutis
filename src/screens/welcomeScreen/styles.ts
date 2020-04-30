@@ -12,16 +12,17 @@ const Container = styled.View`
 `;
 
 const ContainerTop = styled.View`
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
 `;
 
 const ContainerMiddle = styled.View`
-  margin-top: 120px;
+align-items: center;
+  margin-top: 60px;
   width: 100%;
 `;
 
 const ContainerBottom = styled.View`
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
 `;
 
 export { Container, ContainerBottom, ContainerTop, ContainerMiddle };
