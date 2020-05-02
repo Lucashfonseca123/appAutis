@@ -24,9 +24,8 @@ const ContainerBottom = styled.View`
 `;
 
 const ContainerImage = styled.View`
-  position: absolute;
-  bottom: 134px;
-  left: 10px;
+  top: 6px;
+  right: 100px;
 `;
 
 const ContainerPopUp = styled.View`

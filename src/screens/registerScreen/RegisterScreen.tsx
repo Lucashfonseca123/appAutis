@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   Container, ContainerTop, ContainerBottom,
   ContainerImage,
@@ -18,10 +18,10 @@ const RegisterScreen = () => {
         posTop={60}
         fontSize={14}
       />
+      <ContainerImage>
+        <Image type='FelizOrelhaDente' width={140} height={140} />
+      </ContainerImage>
       <Card>
-        <ContainerImage>
-          <Image type='FelizOrelhaDente' width={140} height={140} />
-        </ContainerImage>
         <ContainerTop>
           <Markdown title={value} fontColor="#FFEC3F" />
         </ContainerTop>
@@ -33,7 +33,7 @@ const RegisterScreen = () => {
       <ContainerBottom>
         <Button text="enviar"
           widthSize={120}
-          heightSize={16}
+          heightSize={10}
           onPress={() => navigation.navigate('AvatarPresentationScreen')}
           fontSize={20}
         />
