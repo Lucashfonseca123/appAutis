@@ -5,6 +5,9 @@ interface ICardProps {
   paddingBottom?: number;
   backgroundColor?: string;
   width?: number;
+  onPress?: boolean;
+  borderColor?: string;
+  borderWidth?: number;
 }
 
 const Card = styled.View`
@@ -13,14 +16,21 @@ const Card = styled.View`
     justify-content: center;
     align-items: center;
     width: ${props.width ? props.width : 100}%;
-    padding-bottom:24px;
     border-radius: 24px;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: ${props.paddingTop ? props.paddingTop : 16}px;
-    padding-bottom: ${props.paddingBottom ? props.paddingBottom : 16}px;
-    elevation: 2;
-    border-width: 0.2px;
+
+    ${props.onPress ? css`
+      padding-bottom:24px;
+      padding-left: 16px;
+      padding-right: 16px;
+      padding-top: ${props.paddingTop ? props.paddingTop : 16}px;
+      padding-bottom: ${props.paddingBottom ? props.paddingBottom : 16}px;
+    ` :
+      css`
+      overflow: hidden;
+    `}
+      elevation: 2;
+      border-color: ${props.borderColor ? props.borderColor : 'black'};
+      border-width: ${props.borderWidth ? props.borderWidth : 0.2}px;
   `}
 `;
 

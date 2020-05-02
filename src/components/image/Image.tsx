@@ -19,7 +19,17 @@ interface IImage {
     | 'ArrowRight'
     | 'Question'
     | 'Checkbox'
-    | 'Exit';
+    | 'Exit'
+    | 'Close'
+    | 'Menu'
+    | 'Quadrado'
+    | 'Circulo'
+    | 'Octogono'
+    | 'Pentagono'
+    | 'Retangulo'
+    | 'Trapezio'
+    | 'Triangulo'
+    | 'FundoRetangulo';
     width?: number;
     height?: number;
 }
@@ -134,6 +144,30 @@ const MaxImage = (props: IImage) => {
                 return <Image
                     source={require('../../assets/icons/exit.png')}
                     style={{ width: props.width ? props.width : 247, height: props.height ? props.height : 200 }}
+                />
+            }
+            case "Close": {
+                return <Image
+                    source={require('../../assets/icons/close.png')}
+                    style={{ width: props.width ? props.width : 147, height: props.height ? props.height : 100 }}
+                />
+            }
+            case "Menu": {
+                return <Image
+                    source={require('../../assets/icons/menu.png')}
+                    style={{ width: props.width ? props.width : 147, height: props.height ? props.height : 100 }}
+                />
+            }
+            case "Quadrado": {
+                return <Image
+                    source={require('../../assets/pictures/quadrado.png')}
+                    style={{ width: props.width ? props.width : 147, height: props.height ? props.height : 100 }}
+                />
+            }
+            case "FundoRetangulo": {
+                return <Image
+                    source={require('../../assets/icons/rectangle.png')}
+                    style={{ width: props.width ? props.width : 147, height: props.height ? props.height : 100 }}
                 />
             }
         }

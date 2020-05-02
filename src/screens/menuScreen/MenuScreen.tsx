@@ -1,9 +1,9 @@
 import React from "react";
-import { Markdown, Card } from "../../components";
+import { ImageBackground } from "react-native";
+import { Markdown, Card, Image } from "../../components";
 import { useNavigation } from "@react-navigation/native";
 import { headerComposer, Header } from '../../navigation/NavigationMixins';
 import { Container, BottomContainer } from "./styles";
-
 
 const MenuScreen = () => {
     const navigation = useNavigation();
@@ -16,14 +16,13 @@ const MenuScreen = () => {
 
     return (
         <Container>
-            <Card paddingTop={180}
-                paddingBottom={180}
-                backgroundColor="green"
-                onPress={() => navigation.navigate('PlayerScreen')}>
+            <Card
+                onPress={() => navigation.navigate('PlayerScreen')}
+                noPaddingHorizontal={true}>
                 <Markdown title="Figuras geométricas" textAlign="center" />
             </Card>
             <BottomContainer>
-                <Markdown title="Deslize para outros temas" fontSize={20} />
+                <Markdown title="Deslize para outros temas" fontSize={19} />
             </BottomContainer>
         </Container>
     );

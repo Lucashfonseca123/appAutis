@@ -12,10 +12,19 @@ export const Container = styled.View`
 export const DivCard = styled.View`
     padding-left: 30px;
     flex: 1;
-    margin-top: -30px;
+    margin-top: -20px;
 `;
 
 export const Padding = styled.View`
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+`;
+
+export const DivButtonModal = styled.View`
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 32px;
+    padding-left: 32px;
+    padding-right: 32px;
 `;

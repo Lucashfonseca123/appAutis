@@ -1,4 +1,8 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
+
+interface IPlayerScreenProps {
+  noPadding?: boolean;
+}
 
 const Container = styled.View`
   background-color: #FFEF60;
@@ -34,4 +38,23 @@ const DivButton = styled.View`
   justify-content: space-around;
 `;
 
-export { Container, DivButton, DivMiddle, DivTop, DivImage };
+const DivButtonModal = styled.View`
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    ${(props: IPlayerScreenProps) =>
+    props.noPadding ? css`
+    margin-top: 0px;
+    ` : css`
+      margin-top: 32px;
+    `
+  }
+    padding-left: 16px;
+    padding-right: 16px;
+`;
+
+export {
+  Container, DivButton,
+  DivMiddle, DivTop,
+  DivImage, DivButtonModal
+};

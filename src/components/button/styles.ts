@@ -18,4 +18,8 @@ const Container = styled.View`
   overflow: hidden;
 `;
 
-export { Container };
+const PaddingButton = styled.View`
+  padding-right: 8px;
+`;
+
+export { Container, PaddingButton };
