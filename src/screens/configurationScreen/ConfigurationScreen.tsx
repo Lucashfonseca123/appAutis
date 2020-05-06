@@ -3,7 +3,7 @@ import { Markdown, Image, Card, Modal, Button } from "../../components";
 import { useNavigation } from "@react-navigation/native";
 import { headerComposer, Header } from '../../navigation/NavigationMixins';
 import { Container, DivCard, Padding, DivButtonModal } from "./styles";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, BackHandler } from "react-native";
 import * as Progress from "react-native-progress";
 
 const ConfigurationScreen = () => {
@@ -21,6 +21,10 @@ const ConfigurationScreen = () => {
 
     const closeModal = () => {
         setVisibleModal(false);
+    }
+
+    const logout = () => {
+        BackHandler.exitApp();
     }
 
     return (
@@ -58,8 +62,8 @@ const ConfigurationScreen = () => {
             <Modal isVisible={visibleModal} closeModal={closeModal} typeMax="TristeChoro">
                 <Markdown title="Deseja sair?" fontColor="#FFEF60" />
                 <DivButtonModal>
-                    <Button text="Não" onPress={() => null} widthSize={100} heightSize={10} fontSize={20} />
-                    <Button text="Sim" onPress={() => null} widthSize={100} heightSize={10} fontSize={20} />
+                    <Button text="Não" onPress={() => closeModal()} widthSize={100} heightSize={10} fontSize={20} />
+                    <Button text="Sim" onPress={() => logout()} widthSize={100} heightSize={10} fontSize={20} />
                 </DivButtonModal>
             </Modal>
         </Container >

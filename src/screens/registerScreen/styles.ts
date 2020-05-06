@@ -29,10 +29,8 @@ const ContainerImage = styled.View`
 `;
 
 const ContainerPopUp = styled.View`
-  position: absolute;
-  top: 80px;
-  left: 45px;
-  width: 53%;
+  bottom: 135px;
+  right: 182px;
 `;
 
 

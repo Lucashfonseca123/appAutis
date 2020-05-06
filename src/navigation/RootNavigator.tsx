@@ -16,7 +16,11 @@ const Stack = createStackNavigator();
 function RootNavigator() {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="WelcomeScreen">
+            <Stack.Navigator initialRouteName="WelcomeScreen" screenOptions={{
+                cardStyle: {
+                    backgroundColor: '#FFEF60'
+                }
+            }}>
                 <Stack.Screen
                     name="WelcomeScreen"
                     component={WelcomeScreen}

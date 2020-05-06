@@ -31,7 +31,7 @@ export default function App() {
   return (
     <Container>
       <PopUp title="Esse é o Pedro!  Quanto mais perguntas acertar, mais rápido ele irá crescer!"
-        posLeft={130} posTop={70} fontSize={14} width={61} />
+        posLeft={80} posTop={45} fontSize={18} width={81} />
       <ContainerTop>
         <Image type="FelizOrelhaBaixoDente" width={140} height={160} />
       </ContainerTop>

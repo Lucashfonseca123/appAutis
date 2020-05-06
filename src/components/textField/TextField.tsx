@@ -1,7 +1,7 @@
 import React from 'react';
-import { Input } from 'react-native-elements';
+import { Input, InputProps } from 'react-native-elements';
 
-export interface ITextFieldProps {
+export interface ITextFieldProps extends InputProps {
   placeholder?: string;
   placeholderTextColor?: string;
   textAlign?: "auto" | "center" | "left" | "right" | "justify" | undefined;
@@ -23,6 +23,7 @@ export const TextField = (props: ITextFieldProps) => {
         textAlign: props.textAlign,
         fontFamily: 'showcard-gothic',
       }}
+      keyboardType={props.keyboardType}
       inputContainerStyle={{
         borderBottomColor: props.borderBottomColor,
         borderBottomWidth: props.disabledBorderBottom ? 0 : 1,

@@ -10,6 +10,5 @@ export const Container = styled.View`
 
 export const BottomContainer = styled.View`
     align-items: center;
-    margin-top: 30px;
-    margin-bottom: 40px;
+    padding-bottom: 30px;
 `;

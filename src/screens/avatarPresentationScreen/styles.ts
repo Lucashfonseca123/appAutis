@@ -13,7 +13,7 @@ const Container = styled.View`
 
 const ContainerTop = styled.View`
   flex: 1;
-  margin-top: 25px;
+  margin-top: 105px;
   align-items: center;
   margin-right: 272px;
   transform: rotate(57deg);
@@ -21,7 +21,7 @@ const ContainerTop = styled.View`
 
 const ContainerMiddle = styled.View`
     flex: 1;
-    margin-top: 60px;
+    margin-top: 10px;
     align-items: center;
 `;
 

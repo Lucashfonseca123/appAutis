@@ -14,31 +14,41 @@ interface ICard {
     borderColor?: string;
     borderWidth?: number;
     noPaddingHorizontal?: boolean;
+    source?: NodeRequire;
 }
+
+interface NodeRequire {
+    (id: string): any;
+}
+
+let Require: NodeRequire;
 
 const CardText = ({ children, paddingTop,
     paddingBottom, backgroundColor,
     onPress, width,
     borderColor, borderWidth,
-    noPaddingHorizontal }: ICard) => {
+    noPaddingHorizontal, source }: ICard) => {
     return (
         <>
             {
                 onPress ?
                     <>
-                        <ImageBackground source={require('../../assets/icons/rectangle.png')}
+                        <ImageBackground source={{ uri: source }}
                             style={{
                                 // backgroundColor: 'black',
                                 // flex: 1,
                                 width: "100%", height: 420,
                                 justifyContent: 'center', alignItems: 'center',
                                 borderRadius: 30,
-                                overflow: "hidden"
+                                overflow: "hidden",
+                                elevation: 2,
                             }}>
                             <TouchableOpacity onPress={onPress ? onPress : null} style={{
                                 flex: 1,
                                 justifyContent: 'center',
                                 alignItems: 'center',
+                                paddingLeft: 8,
+                                paddingRight: 8
                             }} >
                                 {children}
                             </TouchableOpacity >
