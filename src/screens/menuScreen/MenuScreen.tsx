@@ -2,11 +2,10 @@ import React, { useRef, useState, useEffect } from 'react';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import {
     View,
-    Text,
     Dimensions,
     StyleSheet,
-    TouchableOpacity,
     Platform,
+    BackHandler
 } from 'react-native';
 
 import { Card, Markdown } from "../../components";
@@ -70,6 +69,16 @@ const MyCarousel = props => {
 
     useEffect(() => {
         setEntries(ENTRIES1);
+    }, []);
+
+    useEffect(() => {
+        const backHandler = BackHandler.addEventListener(
+            'hardwareBackPress',
+            () => {
+                navigation.navigate('WelcomeScreen')
+                return true;
+            },
+        );
     }, []);
 
     const renderItem = ({ item, index }: IListItem) => {

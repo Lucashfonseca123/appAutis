@@ -19,6 +19,7 @@ interface IImage {
     | 'ArrowRight'
     | 'Question'
     | 'Checkbox'
+    | 'CheckboxConfirmed'
     | 'Exit'
     | 'Close'
     | 'Menu'
@@ -137,6 +138,12 @@ const MaxImage = (props: IImage) => {
             case "Checkbox": {
                 return <Image
                     source={require('../../assets/icons/checkbox.png')}
+                    style={{ width: props.width ? props.width : 247, height: props.height ? props.height : 200 }}
+                />
+            }
+            case "CheckboxConfirmed": {
+                return <Image
+                    source={require('../../assets/icons/checkbox-confirmed.png')}
                     style={{ width: props.width ? props.width : 247, height: props.height ? props.height : 200 }}
                 />
             }

@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import Modal from "react-native-modal";
-import { TouchableOpacity, ShadowPropTypesIOS } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { Container, ContainerButton, ContainerModal } from "./styles";
 import { Image } from "../";
 

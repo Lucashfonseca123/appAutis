@@ -9,9 +9,11 @@
     "test": "jest",
     "lint": "eslint .",
     "s": "adb reverse tcp:8081 tcp:8081 && react-native start",
-    "a": "adb reverse tcp:8081 tcp:8081 && react-native run-android"
+    "a": "adb reverse tcp:8081 tcp:8081 && react-native run-android",
+    "reverseR": "adb reverse tcp:9090 tcp:9090"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.10.0",
     "@react-native-community/masked-view": "^0.1.6",
     "@react-navigation/native": "^5.0.8",
     "@react-navigation/native-stack": "^5.0.5",
@@ -30,6 +32,15 @@
     "react-native-screens": "^2.1.0",
     "react-native-snap-carousel": "^3.9.0",
     "react-native-vector-icons": "^6.6.0",
+    "react-redux": "^7.2.0",
+    "reactotron-react-native": "^5.0.0",
+    "reactotron-redux": "^3.1.3",
+    "reactotron-redux-saga": "^4.2.3",
+    "redux": "^4.0.5",
+    "redux-offline-queue": "^1.0.8",
+    "redux-persist": "^6.0.0",
+    "redux-persist-filesystem-storage": "^2.1.0",
+    "redux-saga": "^1.1.3",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
@@ -38,12 +49,15 @@
     "@react-native-community/eslint-config": "^0.0.7",
     "@types/react": "^16.9.23",
     "@types/react-native": "^0.61.17",
+    "@types/react-redux": "^7.1.8",
+    "@types/redux-logger": "^3.0.7",
     "babel-jest": "^25.1.0",
     "eslint": "^6.8.0",
     "jest": "^25.1.0",
     "metro-react-native-babel-preset": "^0.58.0",
     "react-native-typescript-transformer": "^1.2.13",
     "react-test-renderer": "16.9.0",
+    "redux-logger": "^3.0.6",
     "typescript": "^3.8.2"
   },
   "jest": {

@@ -9,9 +9,11 @@ import * as Progress from "react-native-progress";
 const ConfigurationScreen = () => {
     const navigation = useNavigation();
     const [visibleModal, setVisibleModal] = useState<boolean>(false);
+    const [sound, setSound] = useState(false);
 
     navigation.setOptions(headerComposer({
         leftComponent: Header.BackButton(() => navigation.goBack()),
+        middleComponent: Header.Title('Configurações', 22),
         backgroundColor: '#FFEF60',
     }));
 
@@ -33,26 +35,30 @@ const ConfigurationScreen = () => {
             <DivCard>
                 <Card width={100} backgroundColor="#E1CB00"
                     borderWidth={5} borderColor="white">
-                    <Markdown title="Progresso" fontSize={16} />
+                    <Markdown title="Progresso" fontSize={18} />
                     <Padding />
                     <Progress.Bar progress={0.7} width={100} height={20}
                         color="grey" borderColor="black" borderWidth={1} />
 
                     <Padding />
-                    <Markdown title="Status" fontSize={20} />
+                    <Markdown title="Status" fontSize={18} />
                     <Markdown title="Adolescente" fontSize={20} fontColor="#FFEF60" />
 
                     <Padding />
                     <Image type="Adolescente" width={40} height={120} />
                     <Padding />
 
-                    <Markdown title="Som" fontSize={20} fontColor="#FFEF60" />
+                    <Markdown title="Som" fontSize={18} />
                     <Padding />
-                    <TouchableOpacity onPress={() => null}>
-                        <Image type="Checkbox" width={40} height={40} />
+                    <TouchableOpacity onPress={() => setSound(!sound)}>
+                        {!sound ?
+                            <Image type="Checkbox" width={40} height={40} />
+                            :
+                            <Image type="CheckboxConfirmed" width={40} height={40} />
+                        }
                     </TouchableOpacity>
                     <Padding />
-                    <Markdown title="Sair" fontSize={20} fontColor="#FFEF60" />
+                    <Markdown title="Sair" fontSize={18} />
                     <Padding />
                     <TouchableOpacity onPress={() => showModal()}>
                         <Image type="Exit" width={40} height={40} />

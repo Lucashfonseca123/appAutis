@@ -52,13 +52,13 @@ export class Header {
     static Title(
         text: string,
         fontSize: number,
-        fontFamily: "showcard-gothic",
+        fontFamily?: "showcard-gothic",
     ): ReactNode {
         return (
             <View>
                 <Markdown
                     title={text}
-                    fontColor="black"
+                    fontColor="white"
                     fontSize={fontSize}
                     fontFamily={fontFamily}
                 />
