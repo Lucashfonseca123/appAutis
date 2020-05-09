@@ -5,6 +5,11 @@ import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import AsyncStorage from '@react-native-community/async-storage';
 import counterReducer from "./counterReducer";
 import authReducer from "./authReducer";
+import RNFetchBlob from 'rn-fetch-blob';
+
+// FilesystemStorage.config({
+//     storagePath: `${RNFetchBlob.fs.dirs.DocumentDir}/persistStore`,
+// });
 
 const persistConfig = {
     key: 'auth_feature',
@@ -12,14 +17,6 @@ const persistConfig = {
     whitelist: ['counter'],
     stateReconciler: autoMergeLevel2,
 };
-
-// const persistConfig2 = {
-//     key: 'auth_feature',
-//     storage: FilesystemStorage,
-//     whitelist: ['counter'],
-//     stateReconciler: autoMergeLevel2,
-// };
-
 
 export default combineReducers({
     countReducer: persistReducer(persistConfig, counterReducer),

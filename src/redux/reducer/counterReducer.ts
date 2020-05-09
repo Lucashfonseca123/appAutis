@@ -2,6 +2,7 @@
 const initialState = {
     counter: 0,
 };
+
 // Reducers (Modifies The State And Returns A New State)
 const counterReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -14,6 +15,7 @@ const counterReducer = (state = initialState, action) => {
                 counter: state.counter + 1,
             }
         }
+
         // Decrease Counter
         case 'DECREASE_COUNTER': {
             return {
@@ -23,11 +25,13 @@ const counterReducer = (state = initialState, action) => {
                 counter: state.counter - 1,
             }
         }
+
         // Default
         default: {
             return state;
         }
     }
 };
+
 // Exports
 export default counterReducer;

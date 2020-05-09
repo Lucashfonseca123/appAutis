@@ -17,9 +17,9 @@ function RootNavigator() {
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName="WelcomeScreen" screenOptions={{
-                cardStyle: {
-                    backgroundColor: '#FFEF60'
-                }
+                // cardStyle: {
+                //     backgroundColor: '#FFEF60'
+                // }
             }}>
                 <Stack.Screen
                     name="WelcomeScreen"
