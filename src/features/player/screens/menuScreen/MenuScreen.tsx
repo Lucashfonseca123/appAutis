@@ -8,9 +8,9 @@ import {
     BackHandler
 } from 'react-native';
 
-import { Card, Markdown } from "../../components";
+import { Card, Markdown } from "../../../../components";
 import { useNavigation } from '@react-navigation/native';
-import { headerComposer, Header } from '../../navigation/NavigationMixins';
+import { headerComposer, Header } from '../../../../navigation/NavigationMixins';
 import { BottomContainer } from "./styles";
 
 const ENTRIES1 = [

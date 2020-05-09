@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Markdown, Image, Card, Modal, Button } from "../../components";
+import React, { useState } from "react";
+import { Markdown, Image, Card, Modal, Button } from "../../../../components";
 import { useNavigation } from "@react-navigation/native";
-import { headerComposer, Header } from '../../navigation/NavigationMixins';
+import { headerComposer, Header } from '../../../../navigation/NavigationMixins';
 import { Container, DivCard, Padding, DivButtonModal } from "./styles";
 import { TouchableOpacity, BackHandler } from "react-native";
 import * as Progress from "react-native-progress";

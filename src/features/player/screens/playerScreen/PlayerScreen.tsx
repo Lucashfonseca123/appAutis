@@ -6,8 +6,8 @@ import {
   DivImage, DivButtonModal
 } from './styles';
 import { useNavigation } from '@react-navigation/native';
-import { Button, Markdown, Image, Modal } from "../../components";
-import { headerComposer, Header } from '../../navigation/NavigationMixins';
+import { Button, Markdown, Image, Modal } from "../../../../components";
+import { headerComposer, Header } from '../../../../navigation/NavigationMixins';
 
 const PlayerScreen = () => {
   const navigation = useNavigation();

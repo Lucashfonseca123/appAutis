@@ -1,15 +1,9 @@
 import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
-import FilesystemStorage from 'redux-persist-filesystem-storage';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import AsyncStorage from '@react-native-community/async-storage';
 import counterReducer from "./counterReducer";
 import authReducer from "./authReducer";
-import RNFetchBlob from 'rn-fetch-blob';
-
-// FilesystemStorage.config({
-//     storagePath: `${RNFetchBlob.fs.dirs.DocumentDir}/persistStore`,
-// });
 
 const persistConfig = {
     key: 'auth_feature',

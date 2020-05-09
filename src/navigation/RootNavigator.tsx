@@ -2,14 +2,9 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import {
-    PlayerScreen,
-    WelcomeScreen,
-    RegisterScreen,
-    AvatarPresentationScreen,
-    MenuScreen,
-    ConfigurationScreen
-} from "../screens";
+import { AvatarPresentationScreen, RegisterScreen, WelcomeScreen } from "../features/accreditation/screens";
+import { MenuScreen, PlayerScreen } from "../features/player/screens";
+import { ConfigurationScreen } from "../features/settings/screens";
 
 const Stack = createStackNavigator();
 
@@ -17,9 +12,9 @@ function RootNavigator() {
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName="WelcomeScreen" screenOptions={{
-                // cardStyle: {
-                //     backgroundColor: '#FFEF60'
-                // }
+                cardStyle: {
+                    backgroundColor: '#FFEF60'
+                }
             }}>
                 <Stack.Screen
                     name="WelcomeScreen"
