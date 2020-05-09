@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import {
   Container, ContainerTop, ContainerBottom,
   ContainerImage, ContainerPopUp
@@ -6,10 +6,19 @@ import {
 import { Button, Markdown, Card, TextField, Image, PopUp } from "../../../../components";
 import { useNavigation } from '@react-navigation/native';
 import { KeyboardAvoidingView, Platform } from "react-native";
+import { useDispatch } from 'react-redux';
+import { setUser } from "../../redux/action/AuthActions";
 
 const RegisterScreen = () => {
-  const [value, setValue] = useState('');
+  const [name, setName] = useState('');
+
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+
+  const handleSetName = useCallback(() => {
+    dispatch(setUser({ name: name, status: 0 }));
+    navigation.navigate('AvatarPresentationScreen');
+  }, [name]);
 
   return (
     <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}
@@ -28,12 +37,12 @@ const RegisterScreen = () => {
         </ContainerImage>
         <Card>
           <ContainerTop>
-            <Markdown title={value} fontColor="#FFEC3F" />
+            <Markdown title={name} fontColor="#FFEC3F" />
           </ContainerTop>
           <TextField placeholder="Digite seu nome aqui..."
             textAlign="center"
             placeholderTextColor="#E8C82E"
-            onChangeText={(text: string) => setValue(text)}
+            onChangeText={(text: string) => setName(text)}
             marginBottom={5}
             keyboardType="default"
           />
@@ -42,7 +51,7 @@ const RegisterScreen = () => {
           <Button text="enviar"
             widthSize={120}
             heightSize={10}
-            onPress={() => navigation.navigate('AvatarPresentationScreen')}
+            onPress={() => handleSetName()}
             fontSize={20}
           />
         </ContainerBottom>

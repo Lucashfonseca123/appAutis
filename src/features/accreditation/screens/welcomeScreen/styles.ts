@@ -17,7 +17,6 @@ const ContainerTop = styled.View`
 
 const ContainerMiddle = styled.View`
 align-items: center;
-  margin-top: 60px;
   width: 100%;
 `;
 
@@ -25,4 +24,10 @@ const ContainerBottom = styled.View`
   /* justify-content: flex-end; */
 `;
 
-export { Container, ContainerBottom, ContainerTop, ContainerMiddle };
+const ContainerEmail = styled.View`
+  justify-content: center;
+  align-items: center;
+  margin-top: 24;
+`;
+
+export { Container, ContainerBottom, ContainerTop, ContainerMiddle, ContainerEmail };

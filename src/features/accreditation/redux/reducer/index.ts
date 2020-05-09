@@ -2,17 +2,15 @@ import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import AsyncStorage from '@react-native-community/async-storage';
-import counterReducer from "./counterReducer";
-import authReducer from "./authReducer";
+import authReducer from "./AuthReducer";
 
 const persistConfig = {
-    key: 'auth_feature',
+    key: 'auth_accredit',
     storage: AsyncStorage,
-    whitelist: ['counter'],
+    whitelist: ['name', 'status'],
     stateReconciler: autoMergeLevel2,
 };
 
 export default combineReducers({
-    countReducer: persistReducer(persistConfig, counterReducer),
-    authReducerState: authReducer,
+    accreditReducer: persistReducer(persistConfig, authReducer),
 });

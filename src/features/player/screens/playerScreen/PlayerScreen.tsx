@@ -8,6 +8,8 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { Button, Markdown, Image, Modal } from "../../../../components";
 import { headerComposer, Header } from '../../../../navigation/NavigationMixins';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../../../store/RootReducer';
 
 const PlayerScreen = () => {
   const navigation = useNavigation();
@@ -15,6 +17,10 @@ const PlayerScreen = () => {
   const [message, setMessage] = useState('');
   const [subtitle, setSubtitle] = useState('');
   const [messageButton, setMessageButton] = useState('');
+
+  const userName = useSelector(
+    (appState: AppState) => appState.AccreditFeature.accreditReducer.name,
+  );
 
   navigation.setOptions(headerComposer({
     leftComponent: Header.BackButton(() => navigation.goBack()),
@@ -45,7 +51,7 @@ const PlayerScreen = () => {
   return (
     <Container>
       <DivTop>
-        <Markdown title="Qual figura é essa?" fontSize={24} />
+        <Markdown title={`Qual figura é essa ${userName}?`} fontSize={24} />
         <DivImage>
           <Image type="Confuso" width={140} height={160} />
         </DivImage>

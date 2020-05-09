@@ -30,7 +30,8 @@ interface IImage {
     | 'Retangulo'
     | 'Trapezio'
     | 'Triangulo'
-    | 'FundoRetangulo';
+    | 'FundoRetangulo'
+    | 'Gmail';
     width?: number;
     height?: number;
 }
@@ -174,6 +175,12 @@ const MaxImage = (props: IImage) => {
             case "FundoRetangulo": {
                 return <Image
                     source={require('../../assets/icons/rectangle.png')}
+                    style={{ width: props.width ? props.width : 147, height: props.height ? props.height : 100 }}
+                />
+            }
+            case "Gmail": {
+                return <Image
+                    source={require('../../assets/icons/gmail.png')}
                     style={{ width: props.width ? props.width : 147, height: props.height ? props.height : 100 }}
                 />
             }

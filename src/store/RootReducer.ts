@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import userReducer from "../features/accreditation/redux/reducer";
+import accreditReducer from "../features/accreditation/redux/reducer";
 
 const rootReducer = combineReducers({
-    userReducer: userReducer
+    AccreditFeature: accreditReducer
 });
 
 export type AppState = ReturnType<typeof rootReducer>;
