@@ -8,16 +8,19 @@ interface IMarkdown {
     fontColor?: string;
     fontFamily?: string;
     textAlign?: string;
+    lineHeight?: number;
 }
 
-const Markdown = ({ title, fontSize, fontColor, fontFamily, textAlign }: IMarkdown) => {
+const Markdown = ({ title, fontSize, fontColor, fontFamily, textAlign, lineHeight }: IMarkdown) => {
     return (
         <View>
             <MarkdownT
                 fontSize={fontSize}
                 fontColor={fontColor}
                 fontFamily={fontFamily}
-                textAlign={textAlign}>
+                textAlign={textAlign}
+                lineHeight={lineHeight}
+            >
                 {title}
             </MarkdownT>
         </View>

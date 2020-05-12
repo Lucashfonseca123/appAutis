@@ -5,6 +5,7 @@ interface IMarkdown {
     fontColor: string | undefined;
     fontFamily: string | undefined;
     textAlign: string | undefined;
+    lineHeight?: number | undefined;
 }
 
 const MarkdownT = styled.Text`
@@ -14,6 +15,10 @@ const MarkdownT = styled.Text`
         font-family: ${props.fontFamily ? props.fontFamily : "showcard-gothic"};
         text-shadow: 1px 1px 1px black;
         text-align: ${props.textAlign ? props.textAlign : 'auto'}; 
+        ${props.lineHeight ?
+            css`
+            line-height: ${props.lineHeight}px;
+        ` : null}
     `}
 `;
 

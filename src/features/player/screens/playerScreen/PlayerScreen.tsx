@@ -10,6 +10,7 @@ import { Button, Markdown, Image, Modal } from "../../../../components";
 import { headerComposer, Header } from '../../../../navigation/NavigationMixins';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../../../store/RootReducer';
+import obj from "./object/objects.json";
 
 const PlayerScreen = () => {
   const navigation = useNavigation();
@@ -57,7 +58,7 @@ const PlayerScreen = () => {
         </DivImage>
       </DivTop>
       <DivMiddle>
-        <Image type="Quadrado" height={200} width={200} />
+        <Image type={obj.geometricFigures.type1} height={200} width={200} />
       </DivMiddle>
       <DivButton>
         <Button text="Triangulo" onPress={() => showModal(1)} fontSize={14} heightSize={10} widthSize={95} />

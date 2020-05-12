@@ -15,30 +15,30 @@ import { BottomContainer } from "./styles";
 
 const ENTRIES1 = [
     {
-        title: 'Beautiful and dramatic Antelope Canyon',
+        title: 'Formas geométricas',
         subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-        illustration: 'https://i.imgur.com/UYiroysl.jpg',
+        illustration: 'https://i.pinimg.com/originals/09/12/de/0912deca8a83f4bfcfd4dda9a9396dd4.jpg',
     },
     {
-        title: 'Earlier this morning, NYC',
+        title: 'Comida',
         subtitle: 'Lorem ipsum dolor sit amet',
-        illustration: 'https://i.imgur.com/UPrs1EWl.jpg',
+        illustration: 'https://i.pinimg.com/originals/00/af/33/00af3398b0abddafecd30f6dac84cce8.jpg',
     },
-    {
-        title: 'White Pocket Sunset',
-        subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
-        illustration: 'https://i.imgur.com/MABUbpDl.jpg',
-    },
-    {
-        title: 'Acrocorinth, Greece',
-        subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-        illustration: 'https://i.imgur.com/KZsmUi2l.jpg',
-    },
-    {
-        title: 'The lone tree, majestic landscape of New Zealand',
-        subtitle: 'Lorem ipsum dolor sit amet',
-        illustration: 'https://i.imgur.com/2nCt3Sbl.jpg',
-    },
+    // {
+    //     title: 'White Pocket Sunset',
+    //     subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
+    //     illustration: 'https://i.imgur.com/MABUbpDl.jpg',
+    // },
+    // {
+    //     title: 'Acrocorinth, Greece',
+    //     subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
+    //     illustration: 'https://i.imgur.com/KZsmUi2l.jpg',
+    // },
+    // {
+    //     title: 'The lone tree, majestic landscape of New Zealand',
+    //     subtitle: 'Lorem ipsum dolor sit amet',
+    //     illustration: 'https://i.imgur.com/2nCt3Sbl.jpg',
+    // },
 ];
 const { width: screenWidth } = Dimensions.get('window');
 
@@ -88,7 +88,7 @@ const MyCarousel = props => {
                 <Card source={item.illustration}
                     onPress={() => navigation.navigate('PlayerScreen')}
                 >
-                    <Markdown title={item.title} textAlign="center" />
+                    <Markdown title={item.title} lineHeight={40} fontSize={32} textAlign="center" />
                 </Card>
                 <Pagination
                     dotsLength={entries.length}
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     item: {
         width: screenWidth - 60,
         height: screenWidth - 60,
-        marginTop: 16
+        marginTop: 16,
     },
     imageContainer: {
         flex: 1,

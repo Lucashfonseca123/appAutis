@@ -41,7 +41,7 @@ const CardText = ({ children, paddingTop,
                                 justifyContent: 'center', alignItems: 'center',
                                 borderRadius: 30,
                                 overflow: "hidden",
-                                elevation: 2,
+                                elevation: 4,
                             }}>
                             <TouchableOpacity onPress={onPress ? onPress : null} style={{
                                 flex: 1,

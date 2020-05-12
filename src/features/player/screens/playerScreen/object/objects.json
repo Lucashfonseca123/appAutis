@@ -1,0 +1,17 @@
+{
+    "geometricFigures": {
+        "type1": "Quadrado",
+        "type2": "Circulo",
+        "type3": "Retangulo",
+        "type4": "Triangulo",
+        "type5": "Trapezio",
+        "type6": "Octogono",
+        "type7": "Pentagono"
+    },
+    "foodFigures": {
+        "type1": "Coxinha",
+        "type2": "Galinha",
+        "type3": "Carne",
+        "type4": "Pizza"
+    }
+}

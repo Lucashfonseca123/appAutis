@@ -172,6 +172,24 @@ const MaxImage = (props: IImage) => {
                     style={{ width: props.width ? props.width : 147, height: props.height ? props.height : 100 }}
                 />
             }
+            case "Circulo": {
+                return <Image
+                    source={require('../../assets/pictures/circulo.png')}
+                    style={{ width: props.width ? props.width : 147, height: props.height ? props.height : 100 }}
+                />
+            }
+            case "Retangulo": {
+                return <Image
+                    source={require('../../assets/pictures/retangulo.png')}
+                    style={{ width: props.width ? props.width : 147, height: props.height ? props.height : 100 }}
+                />
+            }
+            case "Triangulo": {
+                return <Image
+                    source={require('../../assets/pictures/triangulo.png')}
+                    style={{ width: props.width ? props.width : 147, height: props.height ? props.height : 100 }}
+                />
+            }
             case "FundoRetangulo": {
                 return <Image
                     source={require('../../assets/icons/rectangle.png')}
