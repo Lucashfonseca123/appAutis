@@ -1,13 +1,69 @@
 {
-    "geometricFigures": {
-        "type1": "Quadrado",
-        "type2": "Circulo",
-        "type3": "Retangulo",
-        "type4": "Triangulo",
-        "type5": "Trapezio",
-        "type6": "Octogono",
-        "type7": "Pentagono"
-    },
+    "geometricFigures": [
+        {
+            "type": "Quadrado",
+            "alternative": [
+                "Quadrado",
+                "Triangulo",
+                "Retangulo"
+            ],
+            "answerCorrect": "Quadrado"
+        },
+        {
+            "type": "Circulo",
+            "alternative": [
+                "Quadrado",
+                "Triangulo",
+                "Círculo"
+            ],
+            "answerCorrect": "Círculo"
+        },
+        {
+            "type": "Retangulo",
+            "alternative": [
+                "Quadrado",
+                "Retângulo",
+                "Octógono"
+            ],
+            "answerCorrect": "Retângulo"
+        },
+        {
+            "type": "Triangulo",
+            "alternative": [
+                "Quadrado",
+                "Retângulo",
+                "Triângulo"
+            ],
+            "answerCorrect": "Triângulo"
+        },
+        {
+            "type": "Trapezio",
+            "alternative": [
+                "Trapézio",
+                "Retângulo",
+                "Retangulo"
+            ],
+            "answerCorrect": "Trapézio"
+        },
+        {
+            "type": "Octogono",
+            "alternative": [
+                "Quadrado",
+                "Retângulo",
+                "Octógono"
+            ],
+            "answerCorrect": "Octógono"
+        },
+        {
+            "type": "Pentagono",
+            "alternative": [
+                "Quadrado",
+                "Pentágono",
+                "Retangulo"
+            ],
+            "answerCorrect": "Pentágono"
+        }
+    ],
     "foodFigures": {
         "type1": "Coxinha",
         "type2": "Galinha",
