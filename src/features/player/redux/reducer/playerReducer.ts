@@ -6,9 +6,9 @@ import obj from "../../../../rules/rules.json";
 let index = 0;
 
 const initialState: IPlayerState = {
-    type: obj.menus[0].geometricFigures[index].type,
-    alternatives: obj.menus[0].geometricFigures[index].alternative,
-    answer: obj.menus[0].geometricFigures[index].answerCorrect,
+    type: obj.menus[0].options[index].type,
+    alternatives: obj.menus[0].options[index].alternative,
+    answer: obj.menus[0].options[index].answerCorrect,
     answered: undefined
 };
 
@@ -17,12 +17,12 @@ export default function (state = initialState, action: IPlayerBaseActions) {
     switch (type) {
         case PlayerActions.SET_ANSWER: {
             const { answer } = payload;
-            if (answer === obj.menus[0].geometricFigures[index].answerCorrect) {
+            if (answer === obj.menus[0].options[index].answerCorrect) {
                 index++;
                 let newState = {
-                    type: obj.menus[0].geometricFigures[index].type,
-                    alternatives: obj.menus[0].geometricFigures[index].alternative,
-                    answer: obj.menus[0].geometricFigures[index].answerCorrect,
+                    type: obj.menus[0].options[index].type,
+                    alternatives: obj.menus[0].options[index].alternative,
+                    answer: obj.menus[0].options[index].answerCorrect,
                     answered: true
                 }
                 return newState;

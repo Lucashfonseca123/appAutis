@@ -87,7 +87,9 @@ const MyCarousel = props => {
         return (
             <View style={styles.item}>
                 <Card source={item.image}
-                    onPress={() => navigation.navigate('PlayerScreen')}
+                    onPress={() => navigation.navigate('PlayerScreen', {
+                        params: item
+                    })}
                 >
                     <Markdown title={item.name} lineHeight={40} fontSize={32} textAlign="center" />
                 </Card>

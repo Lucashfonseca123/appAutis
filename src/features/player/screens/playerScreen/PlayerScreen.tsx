@@ -4,7 +4,7 @@ import {
   DivMiddle, DivTop,
   DivImage, DivButtonModal
 } from './styles';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { Button, Markdown, Image, Modal } from "../../../../components";
 import { headerComposer, Header } from '../../../../navigation/NavigationMixins';
 import { useSelector, useDispatch } from 'react-redux';
@@ -18,6 +18,11 @@ const PlayerScreen = () => {
   const [message, setMessage] = useState('');
   const [subtitle, setSubtitle] = useState('');
   const [messageButton, setMessageButton] = useState('');
+  const route = useRoute();
+
+  useEffect(() => {
+    console.log(route.params);
+  }, []);
 
   const [alternativesAnswer, setAlternativesAnswer] = useState([]);
   const [typesAnswer, setTypesAnswer] = useState('');
