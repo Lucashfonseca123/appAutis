@@ -1,18 +1,22 @@
 import { IPlayerActionsTypes, PlayerActions } from "../types/PlayerActionTypes";
-import { IGetAlternatives, ISetAnswer } from "../types/PlayerPayloadTypes";
+import { ISetAnswer, ISetMenu } from "../types/PlayerPayloadTypes";
 
 export interface IPlayerBaseActions {
     type: IPlayerActionsTypes,
-    payload?: IGetAlternatives | ISetAnswer
+    payload?: ISetAnswer | ISetMenu
 }
 
 export interface ISetAnswers extends IPlayerBaseActions {
     type: IPlayerActionsTypes,
     payload: ISetAnswer
 }
-
-export interface IGetAlternativesScreen extends IPlayerBaseActions {
+export interface ISetInitialAnswer extends IPlayerBaseActions {
     type: IPlayerActionsTypes,
+}
+
+export interface ISetMenuOptions extends IPlayerBaseActions {
+    type: IPlayerActionsTypes,
+    payload: ISetMenu
 }
 
 export const setAnswer = (payload: ISetAnswer): ISetAnswers => {
@@ -22,8 +26,15 @@ export const setAnswer = (payload: ISetAnswer): ISetAnswers => {
     }
 };
 
-export const getAlternatives = (): IGetAlternativesScreen => {
+export const setInitialAnswer = (): ISetInitialAnswer => {
     return {
-        type: PlayerActions.GET_ALTERNATIVES
+        type: PlayerActions.SET_INITIAL_ANSWER
     }
 };
+
+export const setMenuOptions = (payload: ISetMenu): ISetMenuOptions => {
+    return {
+        type: PlayerActions.SET_MENU_OPTION,
+        payload
+    }
+}

@@ -5,7 +5,7 @@ import playerReducer from "../features/player/redux/reducer";
 
 const rootReducer = combineReducers({
     AccreditFeature: accreditReducer,
-    PlayerFeature: playerReducer
+    PlayerFeature: playerReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

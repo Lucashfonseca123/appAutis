@@ -1,0 +1,88 @@
+{
+    "menus": [
+        {
+            "name": "Figuras geométricas",
+            "image": "https://i.pinimg.com/originals/09/12/de/0912deca8a83f4bfcfd4dda9a9396dd4.jpg",
+            "geometricFigures": [
+                {
+                    "type": "Quadrado",
+                    "alternative": [
+                        "Quadrado",
+                        "Triangulo",
+                        "Retangulo"
+                    ],
+                    "answerCorrect": "Quadrado"
+                },
+                {
+                    "type": "Circulo",
+                    "alternative": [
+                        "Quadrado",
+                        "Triangulo",
+                        "Círculo"
+                    ],
+                    "answerCorrect": "Círculo"
+                },
+                {
+                    "type": "Retangulo",
+                    "alternative": [
+                        "Quadrado",
+                        "Retângulo",
+                        "Octógono"
+                    ],
+                    "answerCorrect": "Retângulo"
+                },
+                {
+                    "type": "Triangulo",
+                    "alternative": [
+                        "Quadrado",
+                        "Retângulo",
+                        "Triângulo"
+                    ],
+                    "answerCorrect": "Triângulo"
+                },
+                {
+                    "type": "Trapezio",
+                    "alternative": [
+                        "Trapézio",
+                        "Retângulo",
+                        "Retangulo"
+                    ],
+                    "answerCorrect": "Trapézio"
+                },
+                {
+                    "type": "Octogono",
+                    "alternative": [
+                        "Quadrado",
+                        "Retângulo",
+                        "Octógono"
+                    ],
+                    "answerCorrect": "Octógono"
+                },
+                {
+                    "type": "Pentagono",
+                    "alternative": [
+                        "Quadrado",
+                        "Pentágono",
+                        "Retangulo"
+                    ],
+                    "answerCorrect": "Pentágono"
+                }
+            ]
+        },
+        {
+            "name": "Comida",
+            "image": "https://i.pinimg.com/originals/00/af/33/00af3398b0abddafecd30f6dac84cce8.jpg",
+            "foodFigures": [
+                {
+                    "type": "Pentagono",
+                    "alternative": [
+                        "Quadrado",
+                        "Pentágono",
+                        "Retangulo"
+                    ],
+                    "answerCorrect": "Pentágono"
+                }
+            ]
+        }
+    ]
+}

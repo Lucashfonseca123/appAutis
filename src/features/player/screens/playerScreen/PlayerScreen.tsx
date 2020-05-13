@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import React, { useState, useEffect } from 'react';
 import {
   Container, DivButton,
   DivMiddle, DivTop,
@@ -8,20 +7,47 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { Button, Markdown, Image, Modal } from "../../../../components";
 import { headerComposer, Header } from '../../../../navigation/NavigationMixins';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../../../../store/RootReducer';
-import obj from "./object/objects.json";
+import { setAnswer, setInitialAnswer } from "../../redux/action/playerActions";
 
 const PlayerScreen = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
   const [visibleModal, setVisibleModal] = useState<boolean>(false);
   const [message, setMessage] = useState('');
   const [subtitle, setSubtitle] = useState('');
   const [messageButton, setMessageButton] = useState('');
 
+  const [alternativesAnswer, setAlternativesAnswer] = useState([]);
+  const [typesAnswer, setTypesAnswer] = useState('');
+
   const userName = useSelector(
     (appState: AppState) => appState.AccreditFeature.accreditReducer.name,
   );
+
+  const types = useSelector(
+    (appState: AppState) => appState.PlayerFeature.playerReducer.type,
+  );
+
+  const alternatives = useSelector(
+    (appState: AppState) => appState.PlayerFeature.playerReducer.alternatives,
+  );
+
+  const answered = useSelector(
+    (appState: AppState) => appState.PlayerFeature.playerReducer.answered,
+  );
+
+  useEffect(() => {
+    setAlternativesAnswer(alternatives);
+    setTypesAnswer(types);
+    if (answered === true) {
+      showModal(3)
+    } else if (answered === false) {
+      showModal(1)
+    }
+    dispatch(setInitialAnswer());
+  }, [types, answered])
 
   navigation.setOptions(headerComposer({
     leftComponent: Header.BackButton(() => navigation.goBack()),
@@ -49,6 +75,11 @@ const PlayerScreen = () => {
     setVisibleModal(false);
   }
 
+  const sendAnswer = (answerFunction: string) => {
+    dispatch(setAnswer({ answer: answerFunction }));
+    console.log({ answerFunction });
+  }
+
   return (
     <Container>
       <DivTop>
@@ -58,12 +89,10 @@ const PlayerScreen = () => {
         </DivImage>
       </DivTop>
       <DivMiddle>
-        <Image type={obj.geometricFigures.type1} height={200} width={200} />
+        <Image type={types} height={200} width={200} />
       </DivMiddle>
       <DivButton>
-        <Button text="Triangulo" onPress={() => showModal(1)} fontSize={14} heightSize={10} widthSize={95} />
-        <Button text="Circulo" onPress={() => showModal(2)} fontSize={14} heightSize={10} widthSize={95} />
-        <Button text="Quadrado" onPress={() => showModal(3)} fontSize={14} heightSize={10} widthSize={95} />
+        {alternativesAnswer.map(res => (<Button text={res} onPress={() => sendAnswer(res)} fontSize={14} heightSize={10} widthSize={95} />))}
       </DivButton>
       <Modal isVisible={visibleModal} closeModal={closeModal} typeMax={messageButton === 'Próximo' ? 'FelizOrelhaBaixoDente' : "Feliz"}>
         <Markdown title={message} fontColor="#FFEF60" fontSize={22} />

@@ -12,6 +12,9 @@ import { Card, Markdown } from "../../../../components";
 import { useNavigation } from '@react-navigation/native';
 import { headerComposer, Header } from '../../../../navigation/NavigationMixins';
 import { BottomContainer } from "./styles";
+import obj from "../../../../rules/rules.json";
+import { useSelector } from 'react-redux';
+import { AppState } from '../../../../store/RootReducer';
 
 const ENTRIES1 = [
     {
@@ -24,21 +27,6 @@ const ENTRIES1 = [
         subtitle: 'Lorem ipsum dolor sit amet',
         illustration: 'https://i.pinimg.com/originals/00/af/33/00af3398b0abddafecd30f6dac84cce8.jpg',
     },
-    // {
-    //     title: 'White Pocket Sunset',
-    //     subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
-    //     illustration: 'https://i.imgur.com/MABUbpDl.jpg',
-    // },
-    // {
-    //     title: 'Acrocorinth, Greece',
-    //     subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-    //     illustration: 'https://i.imgur.com/KZsmUi2l.jpg',
-    // },
-    // {
-    //     title: 'The lone tree, majestic landscape of New Zealand',
-    //     subtitle: 'Lorem ipsum dolor sit amet',
-    //     illustration: 'https://i.imgur.com/2nCt3Sbl.jpg',
-    // },
 ];
 const { width: screenWidth } = Dimensions.get('window');
 
@@ -47,15 +35,27 @@ interface IPagination {
 }
 
 interface IListItem {
-    item: { title: string, subtitle?: string, illustration?: string };
+    item: { name: string, object?: object, image?: string };
     index: number;
 }
 
 const MyCarousel = props => {
     const [entries, setEntries] = useState([]);
     const [onSnapItem, setOnSnapItem] = useState<IPagination>({ activeSlide: 0 });
+    const [optionsMenu, setOptionsMenu] = useState([{}]);
+
     const carouselRef = useRef(null);
     const navigation = useNavigation();
+
+    const menuOptions = useSelector(
+        (appState: AppState) => appState.PlayerFeature.menuReducer.type,
+    );
+
+    console.log({ menuOptions });
+
+    useEffect(() => {
+        setOptionsMenu(menuOptions);
+    }, [])
 
     navigation.setOptions(headerComposer({
         leftComponent: Header.BackButton(() => navigation.navigate('WelcomeScreen')),
@@ -83,12 +83,13 @@ const MyCarousel = props => {
 
     const renderItem = ({ item, index }: IListItem) => {
         const { activeSlide } = onSnapItem;
+
         return (
             <View style={styles.item}>
-                <Card source={item.illustration}
+                <Card source={item.image}
                     onPress={() => navigation.navigate('PlayerScreen')}
                 >
-                    <Markdown title={item.title} lineHeight={40} fontSize={32} textAlign="center" />
+                    <Markdown title={item.name} lineHeight={40} fontSize={32} textAlign="center" />
                 </Card>
                 <Pagination
                     dotsLength={entries.length}
@@ -123,7 +124,7 @@ const MyCarousel = props => {
                 sliderWidth={screenWidth}
                 sliderHeight={screenWidth}
                 itemWidth={screenWidth - 60}
-                data={entries}
+                data={optionsMenu}
                 renderItem={renderItem}
                 hasParallaxImages={true}
                 onSnapToItem={(index) => setOnSnapItem({ activeSlide: index })}

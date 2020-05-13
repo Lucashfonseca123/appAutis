@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { Text, View, ShadowPropTypesIOS } from "react-native";
 import { MarkdownT } from './styles';
 

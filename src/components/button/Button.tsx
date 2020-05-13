@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { Markdown, Image } from "../";
 import { Container, PaddingButton } from './styles'

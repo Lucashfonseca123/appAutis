@@ -2,7 +2,6 @@ export interface ISetAnswer {
     answer: string;
 }
 
-export interface IGetAlternatives {
+export interface ISetMenu {
     type: string;
-    alternatives: string;
 }
