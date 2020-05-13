@@ -1,4 +1,5 @@
 export interface IPlayerState {
+    menu: string;
     answer: string;
     type: string;
     alternatives: object | string[];
