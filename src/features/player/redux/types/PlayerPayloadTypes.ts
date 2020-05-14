@@ -1,13 +1,15 @@
 export interface ISetAnswer {
     answer: string;
-}
-
-export interface ISetMenu {
-    type: string;
-}
-
-export interface ISetInfos {
     id: number;
-    options: object | object[] | string[];
-    answer: string;
+    progress: number;
+}
+
+export interface IGetInfos {
+    id: number;
+    progress: number;
+}
+
+export interface ISetProgress {
+    id: number;
+    progress: number;
 }

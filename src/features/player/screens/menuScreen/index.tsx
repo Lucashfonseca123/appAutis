@@ -51,8 +51,6 @@ const MyCarousel = props => {
         (appState: AppState) => appState.PlayerFeature.menuReducer.type,
     );
 
-    console.log({ menuOptions });
-
     useEffect(() => {
         setOptionsMenu(menuOptions);
     }, [])

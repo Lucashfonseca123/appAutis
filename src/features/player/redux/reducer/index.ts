@@ -8,11 +8,11 @@ import menuReducer from "./menuReducer";
 const persistConfig = {
     key: 'player_feature',
     storage: AsyncStorage,
-    whitelist: ['type', 'alternatives', 'answer'],
+    whitelist: ['currentStage'],
     stateReconciler: autoMergeLevel2,
 };
 
 export default combineReducers({
-    playerReducer: persistReducer(persistConfig, playerReducer),
-    menuReducer: menuReducer
+    playerReducer: playerReducer,
+    menuReducer: persistReducer(persistConfig, menuReducer)
 });

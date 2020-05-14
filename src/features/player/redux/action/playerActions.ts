@@ -1,9 +1,11 @@
 import { IPlayerActionsTypes, PlayerActions } from "../types/PlayerActionTypes";
-import { ISetAnswer, ISetMenu, ISetInfos } from "../types/PlayerPayloadTypes";
+import { ISetAnswer, IGetInfos, ISetProgress } from "../types/PlayerPayloadTypes";
 
 export interface IPlayerBaseActions {
     type: IPlayerActionsTypes,
-    payload?: ISetAnswer | ISetMenu | ISetInfos
+    payload?: ISetAnswer
+    | IGetInfos
+    | ISetProgress
 }
 
 export interface ISetAnswers extends IPlayerBaseActions {
@@ -13,15 +15,14 @@ export interface ISetAnswers extends IPlayerBaseActions {
 export interface ISetInitialAnswer extends IPlayerBaseActions {
     type: IPlayerActionsTypes,
 }
-
-export interface ISetMenuOptions extends IPlayerBaseActions {
+export interface IGetInfo extends IPlayerBaseActions {
     type: IPlayerActionsTypes,
-    payload: ISetMenu
+    payload: IGetInfos
 }
 
-export interface ISetInfo extends IPlayerBaseActions {
+export interface ISetProgressStage extends IPlayerBaseActions {
     type: IPlayerActionsTypes,
-    payload: ISetInfos
+    payload: ISetProgress
 }
 
 export const setAnswer = (payload: ISetAnswer): ISetAnswers => {
@@ -37,16 +38,16 @@ export const setInitialAnswer = (): ISetInitialAnswer => {
     }
 };
 
-export const setMenuOptions = (payload: ISetMenu): ISetMenuOptions => {
+export const getInfos = (payload: IGetInfos): IGetInfo => {
     return {
-        type: PlayerActions.SET_MENU_OPTION,
+        type: PlayerActions.GET_INFOS,
         payload
     }
 }
 
-export const setInfos = (payload: ISetInfos): ISetInfo => {
+export const setProgress = (payload: ISetProgress): ISetProgressStage => {
     return {
-        type: PlayerActions.SET_INFOS,
+        type: PlayerActions.SET_PROGRESS,
         payload
     }
 }

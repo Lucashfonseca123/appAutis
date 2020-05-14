@@ -1,12 +1,10 @@
 export interface IPlayerState {
-    menu: string;
-    answer: string;
+    id: number;
     type: string;
     alternatives: object | string[];
-    answered: boolean | undefined;
 }
 
 export interface IMenuState {
     type: object[];
-    menuSelected: string;
+    currentStage: object[];
 }
