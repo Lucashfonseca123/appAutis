@@ -7,7 +7,6 @@ export interface IPlayerBaseActions {
     | IGetInfos
     | ISetProgress
 }
-
 export interface ISetAnswers extends IPlayerBaseActions {
     type: IPlayerActionsTypes,
     payload: ISetAnswer
@@ -19,7 +18,6 @@ export interface IGetInfo extends IPlayerBaseActions {
     type: IPlayerActionsTypes,
     payload: IGetInfos
 }
-
 export interface ISetProgressStage extends IPlayerBaseActions {
     type: IPlayerActionsTypes,
     payload: ISetProgress

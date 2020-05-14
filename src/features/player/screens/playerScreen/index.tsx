@@ -10,6 +10,7 @@ import { headerComposer, Header } from '../../../../navigation/NavigationMixins'
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../../../../store/RootReducer';
 import { setAnswer, setInitialAnswer, setProgress, getInfos } from "../../redux/action/playerActions";
+import { BackHandler } from 'react-native';
 
 
 const PlayerScreen = () => {
@@ -46,22 +47,34 @@ const PlayerScreen = () => {
         (appState: AppState) => appState.PlayerFeature.playerReducer.id,
     );
 
-    console.log({ idStage });
-
     const currentProgress = useSelector(
         (appState: AppState) => appState.PlayerFeature.menuReducer.currentStage[idMenu].progress,
     )
 
     useEffect(() => {
+        const backHandler = BackHandler.addEventListener(
+            'hardwareBackPress',
+            () => {
+                navigation.goBack();
+                return true;
+            },
+        );
+        return () => {
+            backHandler.remove();
+        };
+    }, [navigation]);
+
+    useEffect(() => {
         dispatch(getInfos({ id: idMenu, progress: currentProgress }));
     }, [currentProgress])
+
 
     useEffect(() => {
         setAlternativesAnswer(alternatives);
         setTypesAnswer(types);
         if (answered === true) {
-            showModal(3)
             dispatch(setProgress({ id: idMenu, progress: idStage }))
+            showModal(3)
         } else if (answered === false) {
             showModal(1)
         }
@@ -100,7 +113,6 @@ const PlayerScreen = () => {
             id: idMenu,
             progress: currentProgress
         }));
-        console.log({ answerFunction });
     }
 
     return (

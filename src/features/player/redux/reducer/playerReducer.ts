@@ -3,12 +3,12 @@ import { PlayerActions } from "../types/PlayerActionTypes";
 import { IPlayerBaseActions } from "../action/playerActions";
 import obj from "../../../../rules/rules.json";
 
-let index = 0;
+let index = [0, 0];
 
 const initialState: IPlayerState = {
     id: 0,
-    type: obj.menus[0].stage[index].type,
-    alternatives: obj.menus[0].stage[index].alternative,
+    type: obj.menus[0].stage[0].type,
+    alternatives: obj.menus[0].stage[0].alternative,
 };
 
 export default function (state = initialState, action: IPlayerBaseActions) {
@@ -17,7 +17,7 @@ export default function (state = initialState, action: IPlayerBaseActions) {
         case PlayerActions.GET_INFOS: {
             const { id, progress } = payload;
             let newState = {
-                id: obj.menus[id].id,
+                id: progress,
                 type: obj.menus[id].stage[progress].type,
                 alternatives: obj.menus[id].stage[progress].alternative,
             }
@@ -27,9 +27,10 @@ export default function (state = initialState, action: IPlayerBaseActions) {
         case PlayerActions.SET_ANSWER: {
             const { answer, id, progress } = payload;
             if (answer === obj.menus[id].stage[progress].answerCorrect) {
-                index++;
+                index[id]++;
+
                 let newState = {
-                    id: index,
+                    id: index[id],
                     type: obj.menus[id].stage[progress].type,
                     alternatives: obj.menus[id].stage[progress].alternative,
                     answer: obj.menus[id].stage[progress].answerCorrect,

@@ -4,6 +4,7 @@ import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import AsyncStorage from '@react-native-community/async-storage';
 import playerReducer from "./playerReducer";
 import menuReducer from "./menuReducer";
+import autoMergeLevel1 from 'redux-persist/es/stateReconciler/autoMergeLevel1';
 
 const persistConfig = {
     key: 'player_feature',

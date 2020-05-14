@@ -2,7 +2,7 @@ if (__DEV__) {
   import('./ReactotronConfig').then(() => console.log('Reactotron Configured'))
 }
 import React, { useEffect } from 'react';
-import { StatusBar, SafeAreaView } from "react-native";
+import { StatusBar, SafeAreaView, Text } from "react-native";
 import { Provider } from 'react-redux';
 import { store, persistor } from './store/Store';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -12,6 +12,11 @@ import RootNavigator from "./navigation/RootNavigator";
 console.disableYellowBox = true;
 
 const App = () => {
+  useEffect(() => {
+    Text.defaultProps = Text.defaultProps || {};
+    Text.defaultProps.allowFontScaling = false;
+  }, []);
+
   return (
     <>
       <Provider store={store}>

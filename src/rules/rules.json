@@ -84,13 +84,13 @@
             "stage": [
                 {
                     "id": 0,
-                    "type": "Quadrado",
+                    "type": "Retangulo",
                     "alternative": [
                         "Quadrado",
                         "Pentágono",
-                        "Retangulo"
+                        "Retângulo"
                     ],
-                    "answerCorrect": "Quadrado"
+                    "answerCorrect": "Retângulo"
                 },
                 {
                     "id": 1,
@@ -101,6 +101,36 @@
                         "Círculo"
                     ],
                     "answerCorrect": "Círculo"
+                },
+                {
+                    "id": 2,
+                    "type": "Retangulo",
+                    "alternative": [
+                        "Quadrado",
+                        "Retângulo",
+                        "Octógono"
+                    ],
+                    "answerCorrect": "Retângulo"
+                },
+                {
+                    "id": 3,
+                    "type": "Triangulo",
+                    "alternative": [
+                        "Quadrado",
+                        "Retângulo",
+                        "Triângulo"
+                    ],
+                    "answerCorrect": "Triângulo"
+                },
+                {
+                    "id": 4,
+                    "type": "Trapezio",
+                    "alternative": [
+                        "Trapézio",
+                        "Retângulo",
+                        "Retangulo"
+                    ],
+                    "answerCorrect": "Trapézio"
                 }
             ]
         }

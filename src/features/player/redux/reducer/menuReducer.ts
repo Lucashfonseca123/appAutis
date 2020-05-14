@@ -1,7 +1,6 @@
 import { PlayerActions } from "../types/PlayerActionTypes";
 import { IMenuState } from "../types/PlayerStateTypes";
-import { ISetMenu } from "../types/PlayerPayloadTypes";
-import { ISetMenuOptions } from "../action/playerActions";
+import { ISetProgressStage } from "../action/playerActions";
 import obj from "../../../../rules/rules.json";
 
 const initialState: IMenuState = {
@@ -9,7 +8,7 @@ const initialState: IMenuState = {
     currentStage: [{ id: 0, progress: 0 }, { id: 1, progress: 0 }]
 }
 
-export default function (state = initialState, action: ISetMenuOptions) {
+export default function (state = initialState, action: ISetProgressStage) {
     const { type, payload } = action;
     switch (type) {
         case PlayerActions.SET_PROGRESS: {
