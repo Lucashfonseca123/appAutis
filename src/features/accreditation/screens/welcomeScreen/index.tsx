@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Container,
     ContainerTop,
@@ -7,19 +7,31 @@ import {
     ContainerEmail
 } from './styles';
 import { TouchableOpacity } from "react-native";
-import { Markdown, Button, Image } from "../../../../components";
+import { Markdown, Button, Image, TextField } from "../../../../components";
 import { useNavigation } from '@react-navigation/native';
-import { AppState } from '../../../../store/RootReducer';
-import { useSelector } from 'react-redux';
+import auth from "@react-native-firebase/auth";
 
 const WelcomeScreen = () => {
     const navigation = useNavigation();
+    const [name, setName] = useState('');
+    const [password, setPassword] = useState('');
+
+
+    const handleSignIn = async () => {
+        console.log(name);
+        console.log(password);
+        const response = await auth().signInWithEmailAndPassword(name, password);
+        console.log(response);
+    }
 
     return (
         <Container>
             <ContainerTop>
                 <Markdown title="hey max" fontSize={64} />
             </ContainerTop>
+            {/* <TextField placeholder="Nome" onChangeText={(text) => setName(text)} />
+            <TextField placeholder="Senha" onChangeText={(text) => setPassword(text)} />
+            <Button text="Clique aqui" fontSize={20} onPress={handleSignIn} /> */}
             <ContainerEmail>
                 <Markdown title="Faça seu login pelo e-mail" fontSize={16} />
                 <TouchableOpacity style={{ marginTop: 16 }} onPress={() => { }}>

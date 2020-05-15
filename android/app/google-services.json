@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "129115499165",
-    "firebase_url": "https://appautis.firebaseio.com",
-    "project_id": "appautis",
-    "storage_bucket": "appautis.appspot.com"
+    "project_number": "23717694550",
+    "firebase_url": "https://app-autismo-edf1b.firebaseio.com",
+    "project_id": "app-autismo-edf1b",
+    "storage_bucket": "app-autismo-edf1b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:129115499165:android:145fcbd2d3d839c9364274",
+        "mobilesdk_app_id": "1:23717694550:android:6c1a389db140e346547ff7",
         "android_client_info": {
           "package_name": "com.appautis"
         }
       },
       "oauth_client": [
         {
-          "client_id": "129115499165-uj0rva2tsf32ggvhbbbhcc2ijbe60efm.apps.googleusercontent.com",
+          "client_id": "23717694550-dbihaba4j4l5cm3mjef52pr9j1faojed.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDtO_jo3Z_-uPfaHoF4JabSYEDkfIXkzjQ"
+          "current_key": "AIzaSyAH70_yJqyEcHNFZouvqFTgEGjN274_9io"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "129115499165-uj0rva2tsf32ggvhbbbhcc2ijbe60efm.apps.googleusercontent.com",
+              "client_id": "23717694550-dbihaba4j4l5cm3mjef52pr9j1faojed.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
