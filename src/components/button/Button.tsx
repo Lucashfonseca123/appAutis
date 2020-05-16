@@ -6,18 +6,21 @@ import { Container, PaddingButton } from './styles'
 interface IButton {
     text: string;
     onPress: Function;
+    disabled?: boolean;
     widthSize?: number | string;
     heightSize?: number | string;
     fontSize?: number;
     backgroundColor?: string;
     paddingLeft?: number;
     paddingRight?: number;
+    color?: 'disabled' | 'enable';
 }
 
 const Button = (props: IButton) => {
     return (
-        <Container widthSize={props.widthSize}>
+        <Container color={props.color} widthSize={props.widthSize}>
             <TouchableOpacity
+                disabled={props.disabled}
                 onPress={props.onPress ? props.onPress : null}
                 style={{
                     alignItems: 'center',

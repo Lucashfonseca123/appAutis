@@ -5,7 +5,9 @@ import {
 } from "./styles";
 import { Button, Markdown, Card, TextField, Image, PopUp } from "../../../../components";
 import { useNavigation } from '@react-navigation/native';
-import { KeyboardAvoidingView, Platform } from "react-native";
+import {
+    KeyboardAvoidingView, Platform, ToastAndroid, AlertIOS
+} from "react-native";
 import { useDispatch } from 'react-redux';
 import { setUser } from "../../redux/action/AuthActions";
 
@@ -20,9 +22,17 @@ const RegisterScreen = () => {
         navigation.navigate('AvatarPresentationScreen');
     }, [name]);
 
+    const notifyMessage = (msg: string) => {
+        if (Platform.OS === 'android') {
+            ToastAndroid.show(msg, ToastAndroid.CENTER)
+        } else {
+            AlertIOS.alert(msg);
+        }
+    }
+
     return (
         <KeyboardAvoidingView style={{ flex: 1 }
-        } behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        } behavior={Platform.OS === 'ios' ? 'padding' : 'padding'}
             enabled >
             <Container>
                 <ContainerPopUp>
@@ -52,7 +62,10 @@ const RegisterScreen = () => {
                     <Button text="enviar"
                         widthSize={120}
                         heightSize={10}
-                        onPress={() => handleSetName()}
+                        color={!name ? 'disabled' : 'enable'}
+                        onPress={() => !name ?
+                            notifyMessage('Ops, acho que você esqueceu de digitar seu nome.')
+                            : handleSetName()}
                         fontSize={20}
                     />
                 </ContainerBottom>

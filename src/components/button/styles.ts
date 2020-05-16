@@ -3,10 +3,13 @@ import styled, { css } from 'styled-components/native';
 interface IButton {
   widthSize?: number | string;
   heightSize?: number | string;
+  color?: 'disabled' | 'enable';
 }
 
 const Container = styled.View`
-  background-color: #E1CB00;
+  ${(props: IButton) => css`
+  background-color: ${props.color === 'disabled' ? '#BCB46D' : '#E1CB00'}
+`}
   border-width: 0.2px;
   align-items: center;
   ${(props: IButton) => css`
