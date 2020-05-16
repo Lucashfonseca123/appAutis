@@ -9,6 +9,8 @@ export const Container = styled.View`
     ${(props: IModalProps) => css`
         /* width: ${props.width ? props.width : 50}%;
         height: ${props.height ? props.height : 50}%; */
+        padding-right: 16px;
+        padding-left: 16px;
         padding-top: 24px;
         padding-bottom: 16px;
         background-color: #F9F9F9;

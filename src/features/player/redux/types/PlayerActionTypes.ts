@@ -6,5 +6,8 @@ export const PlayerActions = Object.freeze({
     SET_ANSWER: '@player/set_answer' as '@player/set_answer',
     SET_INITIAL_ANSWER: '@player/set_initial_answer' as '@player/set_inital_answer',
     GET_INFOS: '@player/get_infos' as '@player/get_infos',
-    SET_PROGRESS: '@menu/set_progress' as '@menu/set_progress'
+    SET_PROGRESS: '@menu/set_progress' as '@menu/set_progress',
+    SET_INITAL_STATE_PLAYER: '@player/set_inital_state' as '@player/set_initial_state',
+    SET_INITAL_STATE_MENU: '@menu/set_initial_state' as '@menu/set_initial_state',
+    RESET_DONE: '@player/reset_done' as '@player/reset_done'
 })

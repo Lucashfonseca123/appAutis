@@ -9,7 +9,11 @@ import { Button, Markdown, Image, Modal } from "../../../../components";
 import { headerComposer, Header } from '../../../../navigation/NavigationMixins';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../../../../store/RootReducer';
-import { setAnswer, setInitialAnswer, setProgress, getInfos } from "../../redux/action/playerActions";
+import {
+    setAnswer, setInitialAnswer, setProgress,
+    getInfos, setInitialStateMenu, setInitialStatePlayer,
+    resetDone
+} from "../../redux/action/playerActions";
 import { BackHandler } from 'react-native';
 
 
@@ -50,6 +54,17 @@ const PlayerScreen = () => {
     const currentProgress = useSelector(
         (appState: AppState) => appState.PlayerFeature.menuReducer.currentStage[idMenu].progress,
     )
+
+    const done = useSelector(
+        (appState: AppState) => appState.PlayerFeature.playerReducer.done,
+    )
+
+    useEffect(() => {
+        if (done === true) {
+            showModal(2);
+            dispatch(resetDone());
+        }
+    }, [done]);
 
     useEffect(() => {
         const backHandler = BackHandler.addEventListener(
@@ -94,17 +109,28 @@ const PlayerScreen = () => {
             setMessage('Parabens, você acertou!');
             setSubtitle('');
             setMessageButton('Próximo');
-        }
-        else {
-            setMessage('Ops, foi por pouco.');
-            setSubtitle('Tente novamente');
-            setMessageButton('Tentar de novo');
-        }
+        } else
+            if (type === 2) {
+                setMessage('Parabéns, você finalizou essa fase!');
+                setSubtitle('');
+                setMessageButton('Vamos de novo');
+            }
+            else {
+                setMessage('Ops, foi por pouco.');
+                setSubtitle('Tente novamente');
+                setMessageButton('Tentar de novo');
+            }
 
     }
 
     const closeModal = () => {
         setVisibleModal(false);
+    }
+
+    const resetInitialState = () => {
+        dispatch(setInitialStatePlayer({ id: idMenu }));
+        dispatch(setInitialStateMenu({ id: idMenu }));
+        closeModal();
     }
 
     const sendAnswer = (answerFunction: string) => {
@@ -134,7 +160,11 @@ const PlayerScreen = () => {
                 <Markdown title={subtitle} fontColor="#FFEF60" fontSize={22} />
                 <DivButtonModal noPadding={messageButton === 'Próximo' ? true : false}>
                     <Button text="Menu" onPress={() => navigation.navigate('MenuScreen')} widthSize={110} heightSize={10} fontSize={16} />
-                    <Button text={messageButton} onPress={() => closeModal()} widthSize={160} heightSize={10} fontSize={16} />
+                    {messageButton !== 'Vamos de novo' ?
+                        <Button text={messageButton} onPress={() => closeModal()} widthSize={160} heightSize={10} fontSize={16} />
+                        :
+                        <Button text={messageButton} onPress={() => resetInitialState()} widthSize={160} heightSize={10} fontSize={16} />
+                    }
                 </DivButtonModal>
             </Modal>
         </Container>

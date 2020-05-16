@@ -49,8 +49,6 @@ const DivButtonModal = styled.View`
       margin-top: 32px;
     `
   }
-    padding-left: 16px;
-    padding-right: 16px;
 `;
 
 export {

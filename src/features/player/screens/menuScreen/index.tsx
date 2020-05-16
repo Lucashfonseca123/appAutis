@@ -12,8 +12,7 @@ import { Card, Markdown } from "../../../../components";
 import { useNavigation } from '@react-navigation/native';
 import { headerComposer, Header } from '../../../../navigation/NavigationMixins';
 import { BottomContainer } from "./styles";
-import obj from "../../../../rules/rules.json";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../../../../store/RootReducer';
 
 const ENTRIES1 = [
@@ -46,6 +45,8 @@ const MyCarousel = props => {
 
     const carouselRef = useRef(null);
     const navigation = useNavigation();
+
+    const dispatch = useDispatch();
 
     const menuOptions = useSelector(
         (appState: AppState) => appState.PlayerFeature.menuReducer.type,

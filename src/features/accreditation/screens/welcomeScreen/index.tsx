@@ -16,12 +16,10 @@ const WelcomeScreen = () => {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
 
-
     const handleSignIn = async () => {
-        console.log(name);
-        console.log(password);
         const response = await auth().signInWithEmailAndPassword(name, password);
         console.log(response);
+
     }
 
     return (

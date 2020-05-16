@@ -13,3 +13,7 @@ export interface ISetProgress {
     id: number;
     progress: number;
 }
+
+export interface ISetInitialState {
+    id: number;
+}

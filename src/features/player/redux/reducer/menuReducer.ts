@@ -17,6 +17,12 @@ export default function (state = initialState, action: ISetProgressStage) {
             return state;
         }
 
+        case PlayerActions.SET_INITAL_STATE_MENU: {
+            const { id } = payload;
+            state.currentStage[id] = { id: id, progress: 0 }
+            return state;
+        }
+
         default: {
             return state;
         }
