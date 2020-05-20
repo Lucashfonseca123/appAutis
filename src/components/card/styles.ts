@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components/native';
+import { RectButton } from "react-native-gesture-handler";
+
 
 interface ICardProps {
   paddingTop?: number;
@@ -9,6 +11,14 @@ interface ICardProps {
   borderColor?: string;
   borderWidth?: number;
 }
+
+const ContainerCard = styled(RectButton)`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: transparent;
+`;
 
 const Card = styled.View`
   ${(props: ICardProps) => css`
@@ -34,4 +44,4 @@ const Card = styled.View`
   `}
 `;
 
-export { Card };
+export { Card, ContainerCard };

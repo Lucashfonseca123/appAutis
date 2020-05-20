@@ -23,8 +23,7 @@ const PopUp = (props: IPopUp) => {
                 <Markdown title={props.title} fontSize={props.fontSize ? props.fontSize : 16} fontColor="#FFEC3F" />
             </Card>
         </ContainerPopUp>
-
     );
 }
 
-export default PopUp;
+export default React.memo(PopUp);

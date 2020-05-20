@@ -43,4 +43,4 @@ const Button = (props: IButton) => {
     );
 }
 
-export default Button;
+export default React.memo(Button);

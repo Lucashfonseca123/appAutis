@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components/native';
+import { RectButton } from "react-native-gesture-handler";
 
 interface IButton {
   widthSize?: number | string;
@@ -6,18 +7,17 @@ interface IButton {
   color?: 'disabled' | 'enable';
 }
 
-const Container = styled.View`
+const Container = styled(RectButton)`
   ${(props: IButton) => css`
   background-color: ${props.color === 'disabled' ? '#BCB46D' : '#E1CB00'}
 `}
-  border-width: 0.2px;
   align-items: center;
   ${(props: IButton) => css`
   width: ${props.widthSize ? props.widthSize : 100}px;
   `
   }
   border-radius: 20px;
-  elevation: 3;
+  elevation: 2;
   overflow: hidden;
 `;
 

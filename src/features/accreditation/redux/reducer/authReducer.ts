@@ -14,6 +14,8 @@ export default function (state: ISetUserState = initialState,
         case AccreditationActions.SET_USER: {
             return Object.assign({}, state, payload)
         }
+
+
         default:
             return state;
     }

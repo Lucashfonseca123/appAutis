@@ -11,9 +11,19 @@ export interface IAccreditationAction extends IAccreditationBaseAction {
     payload: ISetUser;
 }
 
+export interface ISetStatus extends IAccreditationBaseAction {
+    type: IAccreditationTypes;
+}
+
 export function setUser(payload: ISetUser): IAccreditationAction {
     return {
         type: AccreditationActions.SET_USER,
         payload
     };
+}
+
+export function setState(): ISetStatus {
+    return {
+        type: AccreditationActions.SET_STATUS
+    }
 }

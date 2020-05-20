@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Container,
     ContainerTop,
     ContainerMiddle,
     ContainerBottom,
-    ContainerEmail
+    ContainerEmail,
+    DivButtonModal
 } from './styles';
-import { TouchableOpacity } from "react-native";
-import { Markdown, Button, Image, TextField } from "../../../../components";
+import { TouchableOpacity, BackHandler } from "react-native";
+import { Markdown, Button, Image, TextField, Modal } from "../../../../components";
 import { useNavigation } from '@react-navigation/native';
 import auth from "@react-native-firebase/auth";
 
@@ -15,11 +16,33 @@ const WelcomeScreen = () => {
     const navigation = useNavigation();
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
+    const [visibleModal, setVisibleModal] = useState<boolean>(false);
+
+    useEffect(() => {
+        const backHandler = BackHandler.addEventListener(
+            'hardwareBackPress',
+            () => {
+                showModal();
+                return true;
+            },
+        );
+    }, []);
 
     const handleSignIn = async () => {
         const response = await auth().signInWithEmailAndPassword(name, password);
         console.log(response);
+    }
 
+    const showModal = () => {
+        setVisibleModal(!visibleModal);
+    }
+
+    const closeModal = () => {
+        setVisibleModal(false);
+    }
+
+    const logout = () => {
+        BackHandler.exitApp();
     }
 
     return (
@@ -47,6 +70,13 @@ const WelcomeScreen = () => {
                 <Image type="Feliz"
                 />
             </ContainerBottom>
+            <Modal isVisible={visibleModal} closeModal={closeModal} typeMax="TristeChoro">
+                <Markdown title="Deseja sair?" fontColor="#FFEF60" />
+                <DivButtonModal>
+                    <Button text="Não" onPress={() => closeModal()} widthSize={100} heightSize={10} fontSize={20} />
+                    <Button text="Sim" onPress={() => logout()} widthSize={100} heightSize={10} fontSize={20} />
+                </DivButtonModal>
+            </Modal>
         </Container>
     );
 };

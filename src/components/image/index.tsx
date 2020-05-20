@@ -211,4 +211,4 @@ const MaxImage = (props: IImage) => {
     );
 }
 
-export default MaxImage;
+export default React.memo(MaxImage);

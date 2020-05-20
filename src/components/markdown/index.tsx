@@ -27,4 +27,4 @@ const Markdown = ({ title, fontSize, fontColor, fontFamily, textAlign, lineHeigh
     );
 }
 
-export default Markdown;
+export default React.memo(Markdown);

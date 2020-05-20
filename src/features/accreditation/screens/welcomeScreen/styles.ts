@@ -27,7 +27,19 @@ const ContainerBottom = styled.View`
 const ContainerEmail = styled.View`
   justify-content: center;
   align-items: center;
-  margin-top: 24;
+  margin-top: 24px;
 `;
 
-export { Container, ContainerBottom, ContainerTop, ContainerMiddle, ContainerEmail };
+const DivButtonModal = styled.View`
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 32px;
+    padding-left: 32px;
+    padding-right: 32px;
+`;
+
+export {
+  Container, ContainerBottom, ContainerTop,
+  ContainerMiddle, ContainerEmail, DivButtonModal
+};

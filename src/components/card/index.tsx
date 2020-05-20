@@ -1,8 +1,10 @@
 import React, { ReactNode } from "react";
 import { TouchableOpacity, ShadowPropTypesIOS } from "react-native";
-import { Card } from "./styles";
-import { Image } from "../";
+import { Card, ContainerCard } from "./styles";
 import { ImageBackground } from "react-native";
+import { Image } from "../";
+
+
 
 interface ICard {
     children?: ReactNode;
@@ -35,23 +37,22 @@ const CardText = ({ children, paddingTop,
                     <>
                         <ImageBackground source={{ uri: source }}
                             style={{
-                                // backgroundColor: 'black',
-                                // flex: 1,
                                 width: "100%", height: 420,
                                 justifyContent: 'center', alignItems: 'center',
                                 borderRadius: 30,
                                 overflow: "hidden",
                                 elevation: 4,
                             }}>
+                            {/* <ContainerCard> */}
                             <TouchableOpacity onPress={onPress ? onPress : null} style={{
                                 flex: 1,
                                 justifyContent: 'center',
                                 alignItems: 'center',
-                                paddingLeft: 8,
-                                paddingRight: 8
+                                width: '100%',
                             }} >
                                 {children}
                             </TouchableOpacity >
+                            {/* </ContainerCard> */}
                         </ImageBackground>
                     </>
                     :
@@ -70,4 +71,4 @@ const CardText = ({ children, paddingTop,
     )
 }
 
-export default CardText;
+export default React.memo(CardText);

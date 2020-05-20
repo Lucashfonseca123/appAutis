@@ -76,4 +76,4 @@ const ConfigurationScreen = () => {
     );
 }
 
-export default ConfigurationScreen;
+export default React.memo(ConfigurationScreen);

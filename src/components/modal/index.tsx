@@ -42,4 +42,4 @@ const ModalComponent = ({ children, isVisible,
     );
 }
 
-export default ModalComponent;
+export default React.memo(ModalComponent);

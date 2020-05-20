@@ -4,4 +4,5 @@ export type IAccreditationTypes = EnumLiteralsOf<typeof AccreditationActions>;
 
 export const AccreditationActions = Object.freeze({
     SET_USER: '@user/set_user' as '@user/set_user',
+    SET_STATUS: "@user/set_status" as "user/set_status"
 })
