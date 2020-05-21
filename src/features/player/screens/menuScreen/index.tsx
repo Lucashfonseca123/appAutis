@@ -8,25 +8,14 @@ import {
     BackHandler
 } from 'react-native';
 
-import { Card, Markdown } from "../../../../components";
+import { Card, Markdown } from "components";
 import { useNavigation } from '@react-navigation/native';
-import { headerComposer, Header } from '../../../../navigation/NavigationMixins';
-import { BottomContainer } from "./styles";
+import { headerComposer, Header } from 'navigation/NavigationMixins';
+import { Container, BottomContainer } from "./styles";
 import { useSelector, useDispatch } from 'react-redux';
-import { AppState } from '../../../../store/RootReducer';
+import { AppState } from 'store/RootReducer';
+import { setTotalStage } from "features/accreditation/redux/action/AuthActions";
 
-const ENTRIES1 = [
-    {
-        title: 'Formas geométricas',
-        subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-        illustration: 'https://i.pinimg.com/originals/09/12/de/0912deca8a83f4bfcfd4dda9a9396dd4.jpg',
-    },
-    {
-        title: 'Comida',
-        subtitle: 'Lorem ipsum dolor sit amet',
-        illustration: 'https://i.pinimg.com/originals/00/af/33/00af3398b0abddafecd30f6dac84cce8.jpg',
-    },
-];
 const { width: screenWidth } = Dimensions.get('window');
 
 interface IPagination {
@@ -38,19 +27,35 @@ interface IListItem {
     index: number;
 }
 
-const MyCarousel = props => {
-    const [entries, setEntries] = useState([]);
+const MyCarousel = (props) => {
     const [onSnapItem, setOnSnapItem] = useState<IPagination>({ activeSlide: 0 });
     const [optionsMenu, setOptionsMenu] = useState([{}]);
+
+    const dispatch = useDispatch();
 
     const carouselRef = useRef(null);
     const navigation = useNavigation();
 
-    const dispatch = useDispatch();
-
     const menuOptions = useSelector(
         (appState: AppState) => appState.PlayerFeature.menuReducer.type,
     );
+
+    const status = useSelector(
+        (appState: AppState) => appState.AccreditFeature.accreditReducer.status,
+    );
+
+    let total: number;
+
+    useEffect(() => {
+        total = menuOptions.reduce((
+            (total, menu) => total += menu.stage.length), 0
+        );
+
+        if (status === 0) {
+            dispatch(setTotalStage({ totalStage: total }))
+        }
+
+    }, [menuOptions])
 
     useEffect(() => {
         setOptionsMenu(menuOptions);
@@ -61,14 +66,6 @@ const MyCarousel = props => {
         backgroundColor: '#FFEF60',
         rightComponent: Header.ConfigButton(() => navigation.navigate('ConfigurationScreen'))
     }));
-
-    const goForward = () => {
-        carouselRef.current.snapToNext();
-    };
-
-    useEffect(() => {
-        setEntries(ENTRIES1);
-    }, []);
 
     useEffect(() => {
         const backHandler = BackHandler.addEventListener(
@@ -93,9 +90,8 @@ const MyCarousel = props => {
                     <Markdown title={item.name} lineHeight={40} fontSize={32} textAlign="center" />
                 </Card>
                 <Pagination
-                    dotsLength={entries.length}
+                    dotsLength={optionsMenu.length}
                     activeDotIndex={activeSlide}
-                    // containerStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.75)' }}
                     dotStyle={{
                         width: 15,
                         height: 15,
@@ -116,10 +112,7 @@ const MyCarousel = props => {
     };
 
     return (
-        <View style={styles.container}>
-            {/* <TouchableOpacity onPress={goForward}>
-                <Text>go to next slide</Text>
-            </TouchableOpacity> */}
+        <Container>
             <Carousel
                 ref={carouselRef}
                 sliderWidth={screenWidth}
@@ -133,16 +126,13 @@ const MyCarousel = props => {
             <BottomContainer>
                 <Markdown title="Deslize para outros temas" fontSize={19} />
             </BottomContainer>
-        </View>
+        </Container>
     );
 };
 
 export default MyCarousel;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
     item: {
         width: screenWidth - 60,
         height: screenWidth - 60,

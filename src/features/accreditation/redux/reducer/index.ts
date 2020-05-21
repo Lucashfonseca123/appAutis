@@ -7,7 +7,7 @@ import authReducer from "./AuthReducer";
 const persistConfig = {
     key: 'auth_accredit',
     storage: AsyncStorage,
-    whitelist: ['name', 'status'],
+    whitelist: ['name', 'status', 'missingStage'],
     stateReconciler: autoMergeLevel2,
 };
 

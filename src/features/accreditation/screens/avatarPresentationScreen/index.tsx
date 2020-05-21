@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { Animated, Text, View, StyleSheet } from "react-native";
-import { Image, Button, PopUp } from "../../../../components";
+import { Image, Button, PopUp } from "components";
 import { Container, ContainerTop, ContainerMiddle, ContainerBottom } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 

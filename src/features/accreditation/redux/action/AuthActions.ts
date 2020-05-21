@@ -1,9 +1,9 @@
 import { AccreditationActions, IAccreditationTypes } from "../types/AccreditationActionTypes";
-import { ISetUser } from "../types/AccreditationPayloadTypes";
+import { ISetUser, ISetTotalStage } from "../types/AccreditationPayloadTypes";
 
 export interface IAccreditationBaseAction {
     type: IAccreditationTypes;
-    payload?: ISetUser;
+    payload?: ISetUser | ISetTotalStage;
 }
 
 export interface IAccreditationAction extends IAccreditationBaseAction {
@@ -14,6 +14,13 @@ export interface IAccreditationAction extends IAccreditationBaseAction {
 export interface ISetStatus extends IAccreditationBaseAction {
     type: IAccreditationTypes;
 }
+export interface ISetDecrementStage extends IAccreditationBaseAction {
+    type: IAccreditationTypes;
+}
+export interface ISetTotalStages extends IAccreditationBaseAction {
+    type: IAccreditationTypes;
+    payload: ISetTotalStage;
+}
 
 export function setUser(payload: ISetUser): IAccreditationAction {
     return {
@@ -22,8 +29,21 @@ export function setUser(payload: ISetUser): IAccreditationAction {
     };
 }
 
-export function setState(): ISetStatus {
+export function setStatus(): ISetStatus {
     return {
         type: AccreditationActions.SET_STATUS
+    }
+}
+
+export function setDecrementStage(): ISetStatus {
+    return {
+        type: AccreditationActions.SET_DECREMENT_STAGE
+    }
+}
+
+export function setTotalStage(payload: ISetTotalStage): ISetTotalStages {
+    return {
+        type: AccreditationActions.SET_TOTAL_STAGE,
+        payload
     }
 }

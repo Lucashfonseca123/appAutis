@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Markdown, Image, Card, Modal, Button } from "../../../../components";
+import { Markdown, Image, Card, Modal, Button } from "components";
 import { useNavigation } from "@react-navigation/native";
-import { headerComposer, Header } from '../../../../navigation/NavigationMixins';
+import { headerComposer, Header } from 'navigation/NavigationMixins';
 import { Container, DivCard, Padding, DivButtonModal } from "./styles";
 import { TouchableOpacity, BackHandler } from "react-native";
+import { AppState } from 'store/RootReducer';
 import * as Progress from "react-native-progress";
+import { useSelector } from "react-redux";
 
 const ConfigurationScreen = () => {
     const navigation = useNavigation();
@@ -16,6 +18,10 @@ const ConfigurationScreen = () => {
         middleComponent: Header.Title('Configurações', 22),
         backgroundColor: '#FFEF60',
     }));
+
+    const status = useSelector(
+        (appState: AppState) => appState.AccreditFeature.accreditReducer.status,
+    );
 
     const showModal = () => {
         setVisibleModal(!visibleModal);
@@ -37,7 +43,7 @@ const ConfigurationScreen = () => {
                     borderWidth={5} borderColor="white">
                     <Markdown title="Progresso" fontSize={18} />
                     <Padding />
-                    <Progress.Bar progress={0.7} width={100} height={20}
+                    <Progress.Bar progress={status} width={100} height={20}
                         color="grey" borderColor="black" borderWidth={1} />
 
                     <Padding />

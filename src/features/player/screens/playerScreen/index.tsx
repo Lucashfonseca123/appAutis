@@ -5,15 +5,16 @@ import {
     DivImage, DivButtonModal
 } from './styles';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { Button, Markdown, Image, Modal } from "../../../../components";
-import { headerComposer, Header } from '../../../../navigation/NavigationMixins';
+import { Button, Markdown, Image, Modal } from "components";
+import { headerComposer, Header } from 'navigation/NavigationMixins';
 import { useSelector, useDispatch } from 'react-redux';
-import { AppState } from '../../../../store/RootReducer';
+import { AppState } from 'store/RootReducer';
 import {
     setAnswer, setInitialAnswer, setProgress,
     getInfos, setInitialStateMenu, setInitialStatePlayer,
     resetDone
 } from "../../redux/action/playerActions";
+import { setDecrementStage } from "features/accreditation/redux/action/AuthActions";
 import { BackHandler } from 'react-native';
 
 
@@ -88,8 +89,9 @@ const PlayerScreen = () => {
         setAlternativesAnswer(alternatives);
         setTypesAnswer(types);
         if (answered === true) {
-            dispatch(setProgress({ id: idMenu, progress: idStage }))
-            showModal(3)
+            dispatch(setProgress({ id: idMenu, progress: idStage }));
+            showModal(3);
+            dispatch(setDecrementStage());
         } else if (answered === false) {
             showModal(1)
         }

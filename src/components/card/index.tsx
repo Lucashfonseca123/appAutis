@@ -16,7 +16,7 @@ interface ICard {
     borderColor?: string;
     borderWidth?: number;
     noPaddingHorizontal?: boolean;
-    source?: NodeRequire;
+    source?: NodeRequire | string;
 }
 
 interface NodeRequire {

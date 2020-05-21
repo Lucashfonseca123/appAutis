@@ -4,7 +4,9 @@ import { IAccreditationBaseAction } from "../action/AuthActions";
 
 const initialState: ISetUserState = {
     name: '',
-    status: 0
+    status: 0,
+    missingStage: 0,
+    totalStage: 0
 };
 
 export default function (state: ISetUserState = initialState,
@@ -15,6 +17,21 @@ export default function (state: ISetUserState = initialState,
             return Object.assign({}, state, payload)
         }
 
+        case AccreditationActions.SET_TOTAL_STAGE: {
+            return Object.assign({}, state, payload)
+        }
+
+        case AccreditationActions.SET_STATUS: {
+            return Object.assign({}, state, payload)
+        }
+
+        case AccreditationActions.SET_DECREMENT_STAGE: {
+            let missingStage = state.missingStage++;
+            let total = state.totalStage;
+            let percent = missingStage / total;
+
+            return Object.assign({}, state, missingStage, { status: percent });
+        }
 
         default:
             return state;

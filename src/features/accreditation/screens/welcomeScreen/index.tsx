@@ -8,7 +8,7 @@ import {
     DivButtonModal
 } from './styles';
 import { TouchableOpacity, BackHandler } from "react-native";
-import { Markdown, Button, Image, TextField, Modal } from "../../../../components";
+import { Markdown, Button, Image, TextField, Modal } from "components";
 import { useNavigation } from '@react-navigation/native';
 import auth from "@react-native-firebase/auth";
 

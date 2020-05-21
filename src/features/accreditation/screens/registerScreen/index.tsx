@@ -3,7 +3,7 @@ import {
     Container, ContainerTop, ContainerBottom,
     ContainerImage, ContainerPopUp
 } from "./styles";
-import { Button, Markdown, Card, TextField, Image, PopUp } from "../../../../components";
+import { Button, Markdown, Card, TextField, Image, PopUp } from "components";
 import { useNavigation } from '@react-navigation/native';
 import {
     KeyboardAvoidingView, Platform, ToastAndroid, AlertIOS
