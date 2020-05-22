@@ -10,13 +10,19 @@ import {
 import { TouchableOpacity, BackHandler } from "react-native";
 import { Markdown, Button, Image, TextField, Modal } from "components";
 import { useNavigation } from '@react-navigation/native';
+import { AppState } from "store/RootReducer";
 import auth from "@react-native-firebase/auth";
+import { useSelector } from 'react-redux';
 
 const WelcomeScreen = () => {
     const navigation = useNavigation();
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const [visibleModal, setVisibleModal] = useState<boolean>(false);
+
+    const isName = useSelector(
+        (appState: AppState) => appState.AccreditFeature.accreditReducer.name,
+    );
 
     useEffect(() => {
         const backHandler = BackHandler.addEventListener(
@@ -60,7 +66,14 @@ const WelcomeScreen = () => {
                 </TouchableOpacity>
             </ContainerEmail>
             <ContainerMiddle>
-                <Button text="INICIAR" onPress={() => navigation.navigate('RegisterScreen')}
+                <Button text="INICIAR" onPress={() => {
+                    if (isName !== "") {
+                        navigation.navigate('MenuScreen')
+                    } else {
+                        navigation.navigate('RegisterScreen')
+                    }
+                }
+                }
                     backgroundColor="white"
                     fontSize={36}
                     heightSize={16}
