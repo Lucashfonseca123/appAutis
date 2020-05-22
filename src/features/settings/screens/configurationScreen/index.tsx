@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Markdown, Image, Card, Modal, Button } from "components";
 import { useNavigation } from "@react-navigation/native";
 import { headerComposer, Header } from 'navigation/NavigationMixins';
-import { Container, DivCard, Padding, DivButtonModal } from "./styles";
+import { Container, DivCard, Padding, DivButtonModal, PaddingBar } from "./styles";
 import { TouchableOpacity, BackHandler } from "react-native";
 import { AppState } from 'store/RootReducer';
 import * as Progress from "react-native-progress";
@@ -23,6 +23,10 @@ const ConfigurationScreen = () => {
         (appState: AppState) => appState.AccreditFeature.accreditReducer.status,
     );
 
+    const missingStage = useSelector(
+        (appState: AppState) => appState.AccreditFeature.accreditReducer.missingStage,
+    );
+
     const showModal = () => {
         setVisibleModal(!visibleModal);
     }
@@ -35,6 +39,24 @@ const ConfigurationScreen = () => {
         BackHandler.exitApp();
     }
 
+    const getImage = () => {
+        if (missingStage < 3) {
+            return "Bebe"
+        }
+        if (missingStage < 6) {
+            return "Criança"
+        }
+        if (missingStage < 9) {
+            return "Adolescente"
+        }
+        if (missingStage < 12) {
+            return "Adulto"
+        }
+        if (missingStage === 12) {
+            return "Velho"
+        }
+    }
+
     return (
         <Container>
             <Image type="Inteiro" width={110} height={480} />
@@ -42,16 +64,18 @@ const ConfigurationScreen = () => {
                 <Card width={100} backgroundColor="#E1CB00"
                     borderWidth={5} borderColor="white">
                     <Markdown title="Progresso" fontSize={18} />
-                    <Padding />
+                    <PaddingBar />
+                    <Markdown title={parseFloat((status * 100).toFixed(2)) + "%"} fontSize={18} />
+                    <PaddingBar />
                     <Progress.Bar progress={status} width={100} height={20}
-                        color="grey" borderColor="black" borderWidth={1} />
+                        color="#5ee045" borderColor="black" borderWidth={1} />
 
                     <Padding />
                     <Markdown title="Status" fontSize={18} />
-                    <Markdown title="Adolescente" fontSize={20} fontColor="#FFEF60" />
+                    <Markdown title={getImage() === 'Velho' ? 'Idoso' : getImage()} fontSize={20} fontColor="#FFEF60" />
 
                     <Padding />
-                    <Image type="Adolescente" width={40} height={120} />
+                    <Image type={getImage()} width={95} height={120} />
                     <Padding />
 
                     <Markdown title="Som" fontSize={18} />

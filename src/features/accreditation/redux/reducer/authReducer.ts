@@ -28,7 +28,7 @@ export default function (state: ISetUserState = initialState,
         case AccreditationActions.SET_DECREMENT_STAGE: {
             let missingStage = state.missingStage++;
             let total = state.totalStage;
-            let percent = missingStage / total;
+            let percent = (missingStage + 1) / total;
 
             return Object.assign({}, state, missingStage, { status: percent });
         }

@@ -17,3 +17,7 @@ export interface ISetProgress {
 export interface ISetInitialState {
     id: number;
 }
+export interface ISetStageDone {
+    id: number;
+    progress: number;
+}

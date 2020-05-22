@@ -20,6 +20,11 @@ export const Padding = styled.View`
     padding-bottom: 8px;
 `;
 
+export const PaddingBar = styled.View`
+    padding-top: 4px;
+    padding-bottom: 4px;
+`;
+
 export const DivButtonModal = styled.View`
     width: 100%;
     flex-direction: row;

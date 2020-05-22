@@ -28,8 +28,8 @@ export default function (state = initialState, action: IPlayerBaseActions) {
 
         case PlayerActions.SET_ANSWER: {
             const { answer, id, progress } = payload;
-            console.log(obj.menus[id].stage.length);
-            console.log(progress);
+            // console.log(obj.menus[id].stage.length);
+            // console.log(progress);
 
             if (obj.menus[id].stage.length - 1 === progress && answer === obj.menus[id].stage[progress].answerCorrect) {
                 return Object.assign({}, state, { done: true })

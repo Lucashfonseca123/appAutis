@@ -23,7 +23,7 @@ const DivImage = styled.View`
 const DivTop = styled.View`
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-right: 20px;
+  padding-right: 32px;
 `;
 
 const DivMiddle = styled.View`
@@ -51,8 +51,14 @@ const DivButtonModal = styled.View`
   }
 `;
 
+const DivImageModal = styled.View`
+  margin-top: 16px;
+  margin-bottom: 16px;
+`;
+
 export {
   Container, DivButton,
   DivMiddle, DivTop,
-  DivImage, DivButtonModal
+  DivImage, DivButtonModal,
+  DivImageModal
 };
