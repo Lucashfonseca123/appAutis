@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import AsyncStorage from '@react-native-community/async-storage';
-import authReducer from "./AuthReducer";
+import authReducer from "./authReducer";
 
 const persistConfig = {
     key: 'auth_accredit',
