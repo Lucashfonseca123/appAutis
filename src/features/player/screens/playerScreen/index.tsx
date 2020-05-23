@@ -61,12 +61,20 @@ const PlayerScreen = () => {
     );
 
     const currentProgress = useSelector(
-        (appState: AppState) => appState.PlayerFeature.menuReducer.currentStage[idMenu].progress,
+        (appState: AppState) =>
+            appState.PlayerFeature.menuReducer.currentStage[idMenu] ?
+                appState.PlayerFeature.menuReducer.currentStage[idMenu].progress
+                : 0,
     )
 
     const currentStageDone = useSelector(
-        (appState: AppState) => appState.PlayerFeature.menuReducer.currentStage[idMenu].done,
+        (appState: AppState) =>
+            appState.PlayerFeature.menuReducer.currentStage[idMenu] ?
+                appState.PlayerFeature.menuReducer.currentStage[idMenu].done : false,
     )
+
+    console.log({ currentProgress })
+    console.log({ currentStageDone })
 
     const done = useSelector(
         (appState: AppState) => appState.PlayerFeature.playerReducer.done,

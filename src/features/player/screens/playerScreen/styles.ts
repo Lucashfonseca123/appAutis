@@ -23,7 +23,7 @@ const DivImage = styled.View`
 const DivTop = styled.View`
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-right: 32px;
+  padding-right: 36px;
 `;
 
 const DivMiddle = styled.View`
