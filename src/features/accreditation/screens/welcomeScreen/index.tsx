@@ -1,4 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { TouchableOpacity, BackHandler } from "react-native";
+import { useNavigation } from '@react-navigation/native';
+import auth from "@react-native-firebase/auth";
+import { useSelector } from 'react-redux';
+import { Markdown, Button, Image, Modal } from "components";
+import { AppState } from "store/RootReducer";
+
 import {
     Container,
     ContainerTop,
@@ -7,12 +14,7 @@ import {
     ContainerEmail,
     DivButtonModal
 } from './styles';
-import { TouchableOpacity, BackHandler } from "react-native";
-import { Markdown, Button, Image, TextField, Modal } from "components";
-import { useNavigation } from '@react-navigation/native';
-import { AppState } from "store/RootReducer";
-import auth from "@react-native-firebase/auth";
-import { useSelector } from 'react-redux';
+
 
 const WelcomeScreen = () => {
     const navigation = useNavigation();
@@ -67,11 +69,11 @@ const WelcomeScreen = () => {
             </ContainerEmail>
             <ContainerMiddle>
                 <Button text="INICIAR" onPress={() => {
-                    if (isName !== "") {
-                        navigation.navigate('MenuScreen')
-                    } else {
-                        navigation.navigate('RegisterScreen')
-                    }
+                    // if (isName !== "") {
+                    //     navigation.navigate('MenuScreen')
+                    // } else {
+                    navigation.navigate('RegisterScreen')
+                    // }
                 }
                 }
                     backgroundColor="white"
@@ -80,8 +82,7 @@ const WelcomeScreen = () => {
                     widthSize={300} />
             </ContainerMiddle>
             <ContainerBottom>
-                <Image type="Feliz"
-                />
+                <Image type="Feliz" />
             </ContainerBottom>
             <Modal isVisible={visibleModal} closeModal={closeModal} typeMax="TristeChoro">
                 <Markdown title="Deseja sair?" fontColor="#FFEF60" />

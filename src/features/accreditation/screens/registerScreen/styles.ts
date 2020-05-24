@@ -11,10 +11,6 @@ const Container = styled.View`
   padding-bottom: 16px;
 `;
 
-const ContainerTop = styled.View`
-  margin-top: 16px;  
-`;
-
 const ContainerBottom = styled.View`
   margin-top: 26px;
   width: 100%;
@@ -34,5 +30,5 @@ const ContainerPopUp = styled.View`
 `;
 
 
-export { Container, ContainerTop, ContainerBottom, ContainerImage, ContainerPopUp }
+export { Container, ContainerBottom, ContainerImage, ContainerPopUp }
 

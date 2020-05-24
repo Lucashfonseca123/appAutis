@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import {
-    Container, ContainerTop, ContainerBottom,
+    Container, ContainerBottom,
     ContainerImage, ContainerPopUp
 } from "./styles";
 import { Button, Markdown, Card, TextField, Image, PopUp } from "components";
@@ -13,6 +13,7 @@ import { setUser } from "../../redux/action/AuthActions";
 
 const RegisterScreen = () => {
     const [name, setName] = useState('');
+    const [isFocused, setIsFocused] = useState<boolean>();
 
     const navigation = useNavigation();
     const dispatch = useDispatch();
@@ -30,13 +31,21 @@ const RegisterScreen = () => {
         }
     }
 
+    const setFocus = () => {
+        setIsFocused(true)
+    };
+
+    const setBlur = () => {
+        setIsFocused(false);
+    };
+
     return (
         <KeyboardAvoidingView style={{ flex: 1 }
         } behavior={Platform.OS === 'ios' ? 'padding' : 'padding'}
             enabled >
             <Container>
                 <ContainerPopUp>
-                    <PopUp title="Olá, eu sou o max, serei seu amigo! Qual o seu nome?"
+                    <PopUp title="Olá, eu sou o max, serei seu amigo!  Qual é o seu nome?"
                         width={79}
                         posLeft={85}
                         posTop={40}
@@ -46,15 +55,20 @@ const RegisterScreen = () => {
                 < ContainerImage >
                     <Image type='FelizOrelhaDente' width={140} height={140} />
                 </ContainerImage>
-                < Card >
-                    <ContainerTop>
-                        <Markdown title={name} fontColor="#FFEC3F" />
-                    </ContainerTop>
-                    < TextField placeholder="Digite seu nome aqui..."
+                <Card paddingTop={!name ? 1 : ''}>
+                    <Markdown title={name} fontColor="#FFEC3F" />
+                    < TextField
+                        placeholder="Digite seu nome aqui..."
                         textAlign="center"
+                        onBlur={setBlur}
+                        onFocus={setFocus}
                         placeholderTextColor="#E8C82E"
                         onChangeText={(text: string) => setName(text)}
                         marginBottom={5}
+                        borderFocus={isFocused}
+                        onSubmitEditing={() => !name ?
+                            notifyMessage('Ops, acho que você esqueceu de digitar seu nome.')
+                            : handleSetName()}
                         keyboardType="default"
                     />
                 </Card>

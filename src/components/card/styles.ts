@@ -29,7 +29,6 @@ const Card = styled.View`
     border-radius: 24px;
 
     ${props.onPress ? css`
-      padding-bottom:24px;
       padding-left: 16px;
       padding-right: 16px;
       padding-top: ${props.paddingTop ? props.paddingTop : 16}px;

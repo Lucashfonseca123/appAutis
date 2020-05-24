@@ -4,8 +4,6 @@ import { Card, ContainerCard } from "./styles";
 import { ImageBackground } from "react-native";
 import { Image } from "../";
 
-
-
 interface ICard {
     children?: ReactNode;
     paddingTop?: number;
