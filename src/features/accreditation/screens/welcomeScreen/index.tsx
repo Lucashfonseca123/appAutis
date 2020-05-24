@@ -69,11 +69,11 @@ const WelcomeScreen = () => {
             </ContainerEmail>
             <ContainerMiddle>
                 <Button text="INICIAR" onPress={() => {
-                    // if (isName !== "") {
-                    //     navigation.navigate('MenuScreen')
-                    // } else {
-                    navigation.navigate('RegisterScreen')
-                    // }
+                    if (isName !== "") {
+                        navigation.navigate('MenuScreen')
+                    } else {
+                        navigation.navigate('RegisterScreen')
+                    }
                 }
                 }
                     backgroundColor="white"
