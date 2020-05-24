@@ -62,7 +62,7 @@ const RegisterScreen = () => {
                         textAlign="center"
                         onBlur={setBlur}
                         onFocus={setFocus}
-                        placeholderTextColor="#E8C82E"
+                        placeholderTextColor={isFocused ? "#E8C82E" : "#d2d2d2"}
                         onChangeText={(text: string) => setName(text)}
                         marginBottom={5}
                         borderFocus={isFocused}
