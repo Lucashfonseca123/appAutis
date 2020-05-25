@@ -2,7 +2,7 @@ import { PlayerActions } from "../types/PlayerActionTypes";
 import { IMenuState } from "../types/PlayerStateTypes";
 import { ISetProgressStage } from "../action/playerActions";
 import obj from "../../../../rules/rules.json";
-// import Immutable from "seamless-immutable";
+import Immutable from "seamless-immutable";
 
 const initialState: IMenuState = {
     type: obj.menus,
@@ -14,6 +14,7 @@ export default function (state = initialState, action: ISetProgressStage) {
     switch (type) {
         case PlayerActions.SET_PROGRESS: {
             const { id, progress } = payload;
+
             const indexCurrentStage = state.currentStage.findIndex(
                 currentStage => currentStage.id === id
             )
@@ -26,6 +27,7 @@ export default function (state = initialState, action: ISetProgressStage) {
             }
 
             // let newState;
+
             // newState = {
             //     ...state,
             //     currentStage: [
@@ -34,7 +36,6 @@ export default function (state = initialState, action: ISetProgressStage) {
             //     ]
             // };
 
-            // state.currentStage[id] = { id: id, progress: progress, done: state.currentStage[id].done }
             return state;
         }
 

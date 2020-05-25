@@ -3,8 +3,6 @@ import { PlayerActions } from "../types/PlayerActionTypes";
 import { IPlayerBaseActions } from "../action/playerActions";
 import obj from "../../../../rules/rules.json";
 
-let index = [0, 0];
-
 const initialState: IPlayerState = {
     id: 0,
     type: obj.menus[0].stage[0].type,
@@ -28,17 +26,13 @@ export default function (state = initialState, action: IPlayerBaseActions) {
 
         case PlayerActions.SET_ANSWER: {
             const { answer, id, progress } = payload;
-            // console.log(obj.menus[id].stage.length);
-            // console.log(progress);
 
             if (obj.menus[id].stage.length - 1 === progress && answer === obj.menus[id].stage[progress].answerCorrect) {
                 return Object.assign({}, state, { done: true })
             } else {
                 if (answer === obj.menus[id].stage[progress].answerCorrect) {
-                    index[id]++;
-
                     let newState = {
-                        id: index[id],
+                        id: obj.menus[id].stage[progress].id + 1,
                         type: obj.menus[id].stage[progress].type,
                         alternatives: obj.menus[id].stage[progress].alternative,
                         answer: obj.menus[id].stage[progress].answerCorrect,
@@ -60,9 +54,8 @@ export default function (state = initialState, action: IPlayerBaseActions) {
 
         case PlayerActions.SET_INITAL_STATE_PLAYER: {
             const { id } = payload;
-            index[id] = 0;
             let newState = {
-                id: index[id],
+                id: 0,
                 type: obj.menus[id].stage[0].type,
                 alternatives: obj.menus[id].stage[0].alternative,
                 answer: obj.menus[id].stage[0].answerCorrect,

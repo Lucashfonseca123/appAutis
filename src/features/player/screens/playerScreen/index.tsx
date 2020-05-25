@@ -73,9 +73,6 @@ const PlayerScreen = () => {
                 appState.PlayerFeature.menuReducer.currentStage[idMenu].done : false,
     )
 
-    console.log({ currentProgress })
-    console.log({ currentStageDone })
-
     const done = useSelector(
         (appState: AppState) => appState.PlayerFeature.playerReducer.done,
     )
