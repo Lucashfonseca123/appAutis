@@ -197,6 +197,8 @@ const PlayerScreen = () => {
         }));
     }
 
+    console.log(types)
+
     return (
         <Container>
             <DivTop>
@@ -228,7 +230,7 @@ const PlayerScreen = () => {
                 <Markdown title="Novo status:" fontColor="#FFFFFF" fontSize={22} />
                 <Markdown title={message} fontColor="#FFEF60" fontSize={22} />
                 <DivImageModal>
-                    <Image type={subtitle} width={95} height={220} />
+                    <Image type={subtitle} width={70} height={150} />
                 </DivImageModal>
                 <Button text="Continuar" onPress={() => closeModal()} widthSize={160} heightSize={10} fontSize={16} />
             </Modal>

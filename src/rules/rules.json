@@ -51,19 +51,19 @@
                     "alternative": [
                         "Trapézio",
                         "Retângulo",
-                        "Retangulo"
+                        "Octógono"
                     ],
                     "answerCorrect": "Trapézio"
                 },
                 {
                     "id": 5,
-                    "type": "Octogono",
+                    "type": "Hexagono",
                     "alternative": [
                         "Quadrado",
                         "Retângulo",
-                        "Octógono"
+                        "Hexágono"
                     ],
-                    "answerCorrect": "Octógono"
+                    "answerCorrect": "Hexágono"
                 },
                 {
                     "id": 6,
@@ -84,53 +84,53 @@
             "stage": [
                 {
                     "id": 0,
-                    "type": "Retangulo",
+                    "type": "Chicken",
                     "alternative": [
-                        "Quadrado",
-                        "Pentágono",
-                        "Retângulo"
+                        "Peixe",
+                        "Macarrão",
+                        "Frango"
                     ],
-                    "answerCorrect": "Retângulo"
+                    "answerCorrect": "Frango"
                 },
                 {
                     "id": 1,
-                    "type": "Circulo",
+                    "type": "Apple",
                     "alternative": [
-                        "Quadrado",
-                        "Triangulo",
-                        "Círculo"
+                        "Abacate",
+                        "Maça",
+                        "Laranja"
                     ],
-                    "answerCorrect": "Círculo"
+                    "answerCorrect": "Maça"
                 },
                 {
                     "id": 2,
-                    "type": "Retangulo",
+                    "type": "PorCorn",
                     "alternative": [
-                        "Quadrado",
-                        "Retângulo",
-                        "Octógono"
+                        "Bacon",
+                        "Arroz",
+                        "Pipoca"
                     ],
-                    "answerCorrect": "Retângulo"
+                    "answerCorrect": "Pipoca"
                 },
                 {
                     "id": 3,
-                    "type": "Triangulo",
+                    "type": "Pizza",
                     "alternative": [
-                        "Quadrado",
-                        "Retângulo",
-                        "Triângulo"
+                        "Pizza",
+                        "Pastel",
+                        "Coxinha"
                     ],
-                    "answerCorrect": "Triângulo"
+                    "answerCorrect": "Pizza"
                 },
                 {
                     "id": 4,
-                    "type": "Trapezio",
+                    "type": "Watermellon",
                     "alternative": [
-                        "Trapézio",
-                        "Retângulo",
-                        "Retangulo"
+                        "Pera",
+                        "Abacaxi",
+                        "Melancia"
                     ],
-                    "answerCorrect": "Trapézio"
+                    "answerCorrect": "Melancia"
                 }
             ]
         }
