@@ -7,8 +7,6 @@ import {Provider} from 'react-redux';
 import {store, persistor} from './store/Store';
 import {PersistGate} from 'redux-persist/integration/react';
 
-import SplashScreen from 'react-native-splash-screen';
-
 import RootNavigator from './navigation/RootNavigator';
 
 console.disableYellowBox = true;
@@ -19,9 +17,9 @@ const App = () => {
     Text.defaultProps.allowFontScaling = false;
   }, []);
 
-  useEffect(() => {
-    SplashScreen.hide();
-  }, []);
+  // useEffect(() => {
+  //   SplashScreen.hide();
+  // }, []);
 
   return (
     <>
