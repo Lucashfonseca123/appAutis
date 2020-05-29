@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>appAutis</string>
+	<string>HeyMax</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -55,6 +55,10 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Averta.ttf</string>
+		<string>Doctor_Soos_Light_1.1.ttf</string>
+		<string>doctorbold.ttf</string>
+		<string>SHOWG.TTF</string>
 		<string>AntDesign.ttf</string>
 		<string>Entypo.ttf</string>
 		<string>EvilIcons.ttf</string>
@@ -71,11 +75,6 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
-		<string>AvertaDemoPECuttedDemo-Regular.otf</string>
-		<string>Doctor_Soos_Light_1.1.ttf</string>
-		<string>doctorbold.ttf</string>
-		<string>Averta.ttf</string>
-		<string>SHOWG.TTF</string>
 		<string>showcard-gothic.ttf</string>
 	</array>
 </dict>
