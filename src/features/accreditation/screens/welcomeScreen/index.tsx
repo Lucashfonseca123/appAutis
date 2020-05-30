@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import {TouchableOpacity, BackHandler} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import auth from '@react-native-firebase/auth';
-import {useSelector} from 'react-redux';
-import {Markdown, Button, Image, Modal, TextField} from 'components';
+import {useSelector, useDispatch} from 'react-redux';
+import {Markdown, Button, Image, Modal} from 'components';
 import {AppState} from 'store/RootReducer';
-import firestore from '@react-native-firebase/firestore';
 
-import {GoogleSignin, statusCodes} from '@react-native-community/google-signin';
+import {loginRequest} from '../../redux/action/AuthActions';
+
+import {GoogleSignin} from '@react-native-community/google-signin';
 
 import {
   Container,
@@ -15,14 +15,27 @@ import {
   ContainerMiddle,
   ContainerBottom,
   ContainerEmail,
-  DivButtonModal,
+  DivButtonModal
 } from './styles';
+
+interface IUser {
+  displayName?: string;
+  email?: string;
+  emailVerified?: boolean;
+  isAnonymous?: false;
+  metadata?: object;
+  phoneNumber?: number;
+  photoURL?: string;
+  providerData?: object;
+  providerId?: string;
+  uid?: string;
+}
 
 const WelcomeScreen = () => {
   const navigation = useNavigation();
-  const [name, setName] = useState('');
-  const [password, setPassword] = useState('');
   const [visibleModal, setVisibleModal] = useState<boolean>(false);
+
+  const dispatch = useDispatch();
 
   const isName = useSelector(
     (appState: AppState) => appState.AccreditFeature.accreditReducer.name
@@ -43,14 +56,9 @@ const WelcomeScreen = () => {
       webClientId:
         '562929892594-0sl2apna4kk7joc8skrkn3cqksb2pk6b.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
       offlineAccess: true, // if you want to access Google API on behalf of the user FROM YOUR SERVER
-      forceCodeForRefreshToken: true, // [Android] related to `serverAuthCode`, read the docs link below *.
+      forceCodeForRefreshToken: true // [Android] related to `serverAuthCode`, read the docs link below *.
     });
   });
-
-  const handleSignIn = async () => {
-    const response = await auth().signInWithEmailAndPassword(name, password);
-    console.log(response);
-  };
 
   const showModal = () => {
     setVisibleModal(!visibleModal);
@@ -64,52 +72,20 @@ const WelcomeScreen = () => {
     BackHandler.exitApp();
   };
 
-  const sendWithGmail = async () => {
-    try {
-      await GoogleSignin.hasPlayServices();
-      const userInfo = await GoogleSignin.signIn();
-      console.log(userInfo);
-    } catch (error) {
-      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-        // user cancelled the login flow
-      } else if (error.code === statusCodes.IN_PROGRESS) {
-        // operation (e.g. sign in) is in progress already
-      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-        // play services not available or outdated
-      } else {
-        // some other error happened
-      }
-    }
+  const handleSignIn = () => {
+    dispatch(loginRequest());
   };
-
-  const [todo, setTodo] = useState('');
-  const ref = firestore().collection('todos');
-
-  async function addTodo() {
-    await ref.add({
-      title: 'Agora to aqui ',
-      complete: false
-    });
-    console.log('To aqui');
-    setTodo('');
-  }
 
   return (
     <Container>
       <ContainerTop>
         <Markdown title="hey max" fontSize={64} />
       </ContainerTop>
-      <TextField placeholder="Nome" onChangeText={(text) => setName(text)} />
-      <TextField
-        placeholder="Senha"
-        onChangeText={(text) => setPassword(text)}
-      />
-      <Button text="Clique aqui" fontSize={20} onPress={() => addTodo()} />
       <ContainerEmail>
         <Markdown title="Faça seu login pelo e-mail" fontSize={16} />
         <TouchableOpacity
           style={{marginTop: 16}}
-          onPress={() => sendWithGmail()}>
+          onPress={() => handleSignIn()}>
           <Image type="Gmail" height={40} width={60} />
         </TouchableOpacity>
       </ContainerEmail>

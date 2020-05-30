@@ -3,9 +3,9 @@ import styled from 'styled-components/native';
 const Container = styled.View`
   flex: 1;
   align-items: center;
-  background-color: #FFEF60;
+  background-color: #ffef60;
   flex-direction: column;
-  justify-content:space-between;
+  justify-content: space-between;
   padding-top: 40px;
   padding-left: 20px;
   padding-right: 20px;
@@ -16,7 +16,7 @@ const ContainerTop = styled.View`
 `;
 
 const ContainerMiddle = styled.View`
-align-items: center;
+  align-items: center;
   width: 100%;
 `;
 
@@ -31,15 +31,19 @@ const ContainerEmail = styled.View`
 `;
 
 const DivButtonModal = styled.View`
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin-top: 32px;
-    padding-left: 32px;
-    padding-right: 32px;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 32px;
+  padding-left: 32px;
+  padding-right: 32px;
 `;
 
 export {
-  Container, ContainerBottom, ContainerTop,
-  ContainerMiddle, ContainerEmail, DivButtonModal
+  Container,
+  ContainerBottom,
+  ContainerTop,
+  ContainerMiddle,
+  ContainerEmail,
+  DivButtonModal,
 };
