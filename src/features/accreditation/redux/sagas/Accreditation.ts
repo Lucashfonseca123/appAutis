@@ -42,12 +42,13 @@ function* workerLoginRequest() {
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
     const ref = firestore().collection('users');
     yield auth().signInWithCredential(googleCredential);
-
-    yield auth().onAuthStateChanged(function (user) {
+    let objResponse;
+    let objResponse1;
+    objResponse = yield auth().onAuthStateChanged(function (user) {
       if (user) {
         objectUser = user;
         // Criar consulta aqui se ja existe o usuário
-        firestore()
+        objResponse1 = firestore()
           .collection('users')
           .get()
           .then((querySnapshot) => {
@@ -55,21 +56,16 @@ function* workerLoginRequest() {
 
             querySnapshot.forEach((documentSnapshot) => {
               if (documentSnapshot.data().id === user.uid) {
-                let data = documentSnapshot.data();
-                objectUserSuccess = data;
-                // return loginRequestSuccess({
-                //   id: documentSnapshot.data().id,
-                //   name: documentSnapshot.data().name,
-                //   currentStage: documentSnapshot.data().currentStage,
-                //   status: documentSnapshot.data().status,
-                // });
+                // objectUserSuccess = documentSnapshot.data()
+
+                objectUserSuccess = documentSnapshot.data();
               }
             });
           });
       }
     });
 
-    if (objectUserSuccess !== null) {
+    if (objectUserSuccess !== undefined) {
       console.log('To dentro do if');
       console.log(objectUserSuccess);
       yield put(
@@ -101,7 +97,7 @@ function* workerLoginRequest() {
           id: objectUser.uid,
           name: objectUser.displayName,
           currentStage: objectUser.currentStage,
-          status: objectUser.status,
+          status: objectUser.status
         })
       );
     }

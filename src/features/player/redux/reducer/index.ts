@@ -1,18 +1,18 @@
-import { combineReducers } from 'redux';
-import { persistReducer } from 'redux-persist';
+import {combineReducers} from 'redux';
+import {persistReducer} from 'redux-persist';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import AsyncStorage from '@react-native-community/async-storage';
-import playerReducer from "./playerReducer";
-import menuReducer from "./menuReducer";
+import playerReducer from './playerReducer';
+import menuReducer from './menuReducer';
 
 const persistConfig = {
-    key: 'player_feature',
-    storage: AsyncStorage,
-    whitelist: ['currentStage'],
-    stateReconciler: autoMergeLevel2,
+  key: 'player_feature',
+  storage: AsyncStorage,
+  whitelist: ['currentStage'],
+  stateReconciler: autoMergeLevel2
 };
 
 export default combineReducers({
-    playerReducer: playerReducer,
-    menuReducer: persistReducer(persistConfig, menuReducer)
+  playerReducer: playerReducer,
+  menuReducer: persistReducer(persistConfig, menuReducer),
 });
