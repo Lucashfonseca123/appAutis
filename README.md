@@ -1,6 +1,6 @@
 # Hey Max
 ### Application developed to final paper of the Computer Engineering course at Universidade Estadual de Ponta Grossa.
-- Application designed for the development of people with autism.
+- Application designed for the cognitive development of people with autism.
 
 ### Technologies
 - React Native.
