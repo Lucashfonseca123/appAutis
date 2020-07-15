@@ -15,7 +15,7 @@ import {
   ContainerMiddle,
   ContainerBottom,
   ContainerEmail,
-  DivButtonModal
+  DivButtonModal,
 } from './styles';
 
 interface IUser {
@@ -56,7 +56,7 @@ const WelcomeScreen = () => {
       webClientId:
         '562929892594-0sl2apna4kk7joc8skrkn3cqksb2pk6b.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
       offlineAccess: true, // if you want to access Google API on behalf of the user FROM YOUR SERVER
-      forceCodeForRefreshToken: true // [Android] related to `serverAuthCode`, read the docs link below *.
+      forceCodeForRefreshToken: true, // [Android] related to `serverAuthCode`, read the docs link below *.
     });
   });
 
@@ -93,7 +93,7 @@ const WelcomeScreen = () => {
         <Button
           text="INICIAR"
           onPress={() => {
-            if (isName !== '') {
+            if (isName) {
               navigation.navigate('MenuScreen');
             } else {
               navigation.navigate('RegisterScreen');

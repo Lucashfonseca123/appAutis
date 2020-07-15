@@ -1,11 +1,11 @@
 // Imports: Dependencies
 import AsyncStorage from '@react-native-community/async-storage';
-import {createStore, compose, applyMiddleware} from 'redux';
 import {persistStore, persistReducer} from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
 import reactotron from '../ReactotronConfig';
 import hardSet from 'redux-persist/lib/stateReconciler/hardSet';
 import rootSaga from './RootSaga';
+import {configureStore} from '@reduxjs/toolkit';
 
 import rootReducer from './RootReducer';
 
@@ -17,15 +17,16 @@ const persistConfig = {
   key: 'heyMax',
   storage: AsyncStorage,
   stateReconciler: hardSet,
-  whitelist: []
+  whitelist: [],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const store = createStore(
-  rootReducer,
-  compose(applyMiddleware(sagaMiddleware), reactotron.createEnhancer())
-);
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: [sagaMiddleware],
+  enhancers: [reactotron.createEnhancer()]
+});
 
 const persistor = persistStore(store);
 
